@@ -1,30 +1,15 @@
+// SPDX-License-Identifier: MIT
 pragma solidity ^0.8.20;
+import "./AbilityRegistry.sol";
 
-contract AbilityProposal
-{
-
+contract AbilityProposal is AbilityRegistry {
     uint256 public proposalCount = 0;
 
     struct Proposal {
-        uint256 id;
+        uint256 id_proposal;
         address proposer;
-
-        string name;            // name of the spell
-        string effect;          // effect of the spell, e.g. Area of effect, single target, etc.
-        uint256 manaCost;       // mana cost of the spell, used to determine if the player can cast it
-        string description;
-
+        Ability abilityObj;
         uint256 startTime;
-        uint256 endTime;
-
-        bool executed;
-        bool submitted;
-
-        uint256 basePower;      // base power of the spell, used to calculate damage or healing
-        uint256 abilityType;           // use ints to describe the type of spell, attack, heal, buff, debuff etc.
-        uint256 levelRequired;  // level required to cast the spell, used to determine if the player can cast it
-        uint256 cooldown;       // cooldown of the spell, used to determine if the player can cast it again
-
 
         // Additional fields can be added as needed, e.g.:
         // number of projectiles
@@ -32,17 +17,12 @@ contract AbilityProposal
         // Area
         // range
         // type (circular, cone, line, multidirectional lines)
-
-        string element;         // the element of the spell, e.g. Fire, Water, Earth, Air, etc.
-        string race;            // The race which can use the spell, e.g. Human, Elf, Orc, etc.
-
-
     }
 
     mapping(uint256 => Proposal) public proposals;
 
     event SpellProposed(
-        uint256 indexed id,
+        uint256 indexed id_proposal,
         address indexed proposer,
         string name,
         string effect,
@@ -53,11 +33,9 @@ contract AbilityProposal
         string element,
         string race,
         uint256 cooldown,
-
         string description,
         uint256 startTime
     );
-
     function submitProposal(
         string memory _name,
         string memory _effect,
@@ -67,31 +45,30 @@ contract AbilityProposal
         uint256 _abilityType,
         uint256 _levelRequired,
         uint256 _cooldown,
-
         string memory _element,
         string memory _race
-
     ) external {
         proposalCount++;
         uint256 currentTime = block.timestamp;
 
-        proposals[proposalCount] = Proposal({
-            id: proposalCount,
-            proposer: msg.sender,
+        Ability memory newAbility = Ability({
             name: _name,
             effect: _effect,
-            manaCost: _manaCost, 
+            manaCost: _manaCost,
             description: _description,
-            startTime: currentTime,
-            endTime: currentTime + 1 days, // duration of 7 days
-            executed: false,
-            submitted: true,
             basePower: _basePower,
             abilityType: _abilityType,
             levelRequired: _levelRequired,
             element: _element,
-            cooldown: _cooldown,
-            race: _race
+            race: _race,
+            cooldown: _cooldown
+        });
+
+        proposals[proposalCount] = Proposal({
+            id_proposal: proposalCount,
+            proposer: msg.sender,
+            abilityObj: newAbility,
+            startTime: currentTime
         });
 
         emit SpellProposed(
@@ -110,7 +87,6 @@ contract AbilityProposal
             currentTime
         );
     }
-
 
     function getProposal(uint256 _id) external view returns (Proposal memory) {
         require(_id > 0 && _id <= proposalCount, "Proposal does not exist");
