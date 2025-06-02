@@ -83,17 +83,18 @@ contract Hero is ERC721URIStorage, Ownable {
 
     function updateAttributes(
         uint256 tokenId,
-        uint256 newHealth,
-        uint256 newAttackPower,
-        uint256 newDefense
+        uint32 new_level,
+        string[] new_equippeditem,
+        stats new_statstable
+
     ) public {
         require(ERC721._ownerOf(tokenId) == msg.sender, "Token does not exist");
 
-        tokenIdToAttributes[tokenId] = Attributes({
-            health: newHealth,
-            attackPower: newAttackPower,
-            defense: newDefense
-        });
+       Herodata storage data = heroData[tokenId];
+
+        data.level = new_level;
+        data.equippeditem = new_equippeditem;
+        data.statstable = new_statstable;
     }
     //primary stats which go on L1 are:health,damage,defense,mana,energy
     //Secondary stats which go on L1 are:all others 
