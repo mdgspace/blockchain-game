@@ -1,9 +1,15 @@
-pragma solidity >=0.5.0 <0.9.0;
+// SPDX-License-Identifier: MIT
+pragma solidity ^0.8.19;
 
 import "@openzeppelin/contracts/token/ERC721/extensions/ERC721URIStorage.sol";
 import "@openzeppelin/contracts/access/Ownable.sol";
 
-contract Hero {
+contract Hero is ERC721URIStorage, Ownable {
+    uint256 public tokenCounter;
+
+    constructor() ERC721("Hero", "HERO") {
+        tokenCounter = 0;
+    }
 
     struct offensivestats{
         uint32 damage;
@@ -47,16 +53,18 @@ contract Hero {
     
     function mintHero(
         string memory _playername,
-        string memory _playerID,
+        address _playerID,
         string memory _raceName,
         uint32[] memory _resistance,  //ispe ek baar discus kar lena humse
-        string memory tokenURI,
-        uint256 tokenId
-    ) public {
+        string memory tokenURI
+    ) public onlyOwner {
 
         string[] memory emptyArray;
 
-        heroData[tokenId] = Herodata({
+        _safeMint(_playerID, tokenCounter);
+        _setTokenURI(tokenCounter, tokenURI);
+
+        heroData[tokenCounter] = Herodata({
             playername: _playername,
             playerID: _playerID,
             level: 1,
@@ -70,6 +78,22 @@ contract Hero {
             isbanned: false
         });
 
+        tokenCounter++;
+    }
+
+    function updateAttributes(
+        uint256 tokenId,
+        uint256 newHealth,
+        uint256 newAttackPower,
+        uint256 newDefense
+    ) public {
+        require(ERC721._ownerOf(tokenId) == msg.sender, "Token does not exist");
+
+        tokenIdToAttributes[tokenId] = Attributes({
+            health: newHealth,
+            attackPower: newAttackPower,
+            defense: newDefense
+        });
     }
     //primary stats which go on L1 are:health,damage,defense,mana,energy
     //Secondary stats which go on L1 are:all others 
