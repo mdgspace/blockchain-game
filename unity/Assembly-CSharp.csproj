@@ -65,6 +65,7 @@
     <Compile Include="Assets\BlockChain\EthereumReader.cs" />
     <Compile Include="Assets\Scripts\PlayerController.cs" />
     <Compile Include="Assets\Scripts\InputManager.cs" />
+    <Compile Include="Assets\CamFollow.cs" />
     <Compile Include="Assets\PlayerInputActions.cs" />
     <Compile Include="Assets\PlayerInputAction.cs" />
   </ItemGroup>
