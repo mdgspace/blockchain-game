@@ -4,8 +4,6 @@ using UnityEngine;
 public class PlayerMoveState : PlayerState
 {
     private Vector2 moveInput;
-    private float speed = 5f;
-
     public PlayerMoveState(Player player, StateMachine<Player> stateMachine)
         : base(player, stateMachine) { }
 
@@ -28,6 +26,6 @@ public class PlayerMoveState : PlayerState
 
     public override void PhysicsUpdate()
     {
-        player.SetVelocity(moveInput * speed);
+        player.SetVelocity(moveInput * player.moveSpeed);
     }
 }
