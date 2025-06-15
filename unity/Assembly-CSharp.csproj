@@ -79,6 +79,7 @@
     <Compile Include="Assets\Scripts\Enemies\states\AttackState.cs" />
     <Compile Include="Assets\Scripts\Enemies\states\FreeRoamingState.cs" />
     <Compile Include="Assets\Scripts\Enemies\states\FollowState.cs" />
+    <Compile Include="Assets\Scripts\Enemies\slime\slimeEnemy.cs" />
     <Compile Include="Assets\Scripts\Player\PlayerStates\PlayerIdleState.cs" />
     <Compile Include="Assets\Scripts\Core\InputManager.cs" />
     <Compile Include="Assets\Scripts\Core\StateMachine.cs" />

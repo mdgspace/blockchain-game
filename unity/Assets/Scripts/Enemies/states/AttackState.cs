@@ -12,6 +12,14 @@ public class AttackState : BaseEnemyState
         StopMoving();
         attackTimer = 0f;
         attackCooldown = owner.AttackCooldown;
+        owner.animator.SetBool("isAttacking", true);
+        owner.animator.SetBool("followPlayer", false);
+        owner.animator.SetBool("freeRoam", false);
+    }
+
+    public override void Exit()
+    {
+        owner.animator.SetBool("isAttacking", false);
     }
 
     public override void LogicUpdate()

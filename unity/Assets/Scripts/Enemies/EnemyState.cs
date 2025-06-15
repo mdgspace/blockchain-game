@@ -9,10 +9,10 @@ public abstract class BaseEnemyState : State<Enemy>
     protected Rigidbody2D Rb => owner.RB;
     protected float MoveSpeed => owner.MoveSpeed;
 
-    protected void MoveTowards(Vector2 target)
+    protected void MoveTowards(Vector2 target, float moveSpeed)
     {
         Vector2 direction = (target - (Vector2)owner.transform.position).normalized;
-        Rb.linearVelocity = direction * MoveSpeed;
+        Rb.linearVelocity = direction * moveSpeed;
     }
 
     protected void StopMoving()

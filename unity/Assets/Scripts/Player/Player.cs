@@ -36,6 +36,7 @@ public class Player : MonoBehaviour
 
     private void Start()
     {
+        RB.freezeRotation = true; 
         stateMachine.Initialize(idleState);
     }
 

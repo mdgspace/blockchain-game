@@ -10,14 +10,16 @@ public class FreeRoamingState : BaseEnemyState
     public override void Enter()
     {
         roamTarget = owner.GetRandomRoamPosition();
-        owner.animator.SetBool("isWalking", true);
+        owner.animator.SetBool("freeRoam", true);
+        owner.animator.SetBool("followPlayer", false);
+        owner.animator.SetBool("isAttacking", false);
     }
 
     public override void LogicUpdate()
     {
         //Debug.Log("Free roaming state active");
         
-        MoveTowards(roamTarget);
+        MoveTowards(roamTarget, owner.MoveSpeed);
 
         if (owner.CanSeePlayer())
         {

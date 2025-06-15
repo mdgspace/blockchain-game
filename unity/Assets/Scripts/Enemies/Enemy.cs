@@ -35,6 +35,8 @@ public class Enemy : MonoBehaviour
     public FollowState FollowState { get; private set; }
     public AttackState AttackState { get; private set; }
 
+
+
     private void Awake()
     {
         if (playerTransform == null)
@@ -43,8 +45,9 @@ public class Enemy : MonoBehaviour
         RB = transform.GetComponent<Rigidbody2D>();
     }
 
-    private void Start()
+    void Start()
     {
+        RB.freezeRotation = true;
         StateMachine = new StateMachine<Enemy>();
 
         IdleState = new IdleState(this, StateMachine);
@@ -53,7 +56,7 @@ public class Enemy : MonoBehaviour
         AttackState = new AttackState(this, StateMachine);
 
         StateMachine.Initialize(IdleState);
-        RB.freezeRotation = true;
+
     }
 
     private void Update()
@@ -65,6 +68,7 @@ public class Enemy : MonoBehaviour
     {
         StateMachine?.PhysicsUpdate();
     }
+
 
 
     public bool CanSeePlayer()
