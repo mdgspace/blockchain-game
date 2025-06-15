@@ -10,10 +10,10 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 13312, guid: 0000000000000000e000000000000000, type: 0}
-  m_Name: FieldsTile_02_0
+  m_Name: 18_0
   m_EditorClassIdentifier: 
-  m_Sprite: {fileID: -6950120325060410349, guid: 9c188230123da1c44a365691e1988a60, type: 3}
-  m_Color: {r: 0.87058824, g: 0.7215686, b: 0.5294118, a: 1}
+  m_Sprite: {fileID: 2960402581040015946, guid: 03aaa3dc268661348b6415289d6eb75b, type: 3}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_Transform:
     e00: 1
     e01: 0

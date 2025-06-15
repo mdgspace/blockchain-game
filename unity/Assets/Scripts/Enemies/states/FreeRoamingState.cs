@@ -28,8 +28,6 @@ public class FreeRoamingState : BaseEnemyState
         }
         else if (Vector2.Distance(owner.transform.position, roamTarget) < 0.2f)
         {
-            Debug.Log(owner.transform.position);
-            Debug.Log(roamTarget);
             //Debug.Log("Reached roam target, switching to idle state");
             stateMachine.ChangeState(owner.IdleState);
         }
