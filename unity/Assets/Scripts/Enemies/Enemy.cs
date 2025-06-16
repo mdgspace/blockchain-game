@@ -142,16 +142,20 @@ public class Enemy : MonoBehaviour
 
     public void FlipIfNeeded()
     {
-        if (agent.velocity.x != 0)
+        if (Mathf.Abs(agent.velocity.x) < 0.5f)
         {
             bool shouldFlip = (agent.velocity.x > 0 && !IsFacingRight) || (agent.velocity.x < 0 && IsFacingRight);
             if (shouldFlip)
             {
-                Debug.Log("Flipping" + Name);
-                IsFacingRight = !IsFacingRight;
-                RB.transform.Rotate(0f, 180f, 0f);
+                Flip();
             }
         }
+    }
+    public void Flip()
+    {   
+        Debug.Log("Flipping" + Name);
+        IsFacingRight = !IsFacingRight;
+        RB.transform.Rotate(0f, 180f, 0f);
     }
     public virtual void PerformAttack()
     {

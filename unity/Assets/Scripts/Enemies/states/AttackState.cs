@@ -48,10 +48,10 @@ public class AttackState : BaseEnemyState
 
         attackTimer += Time.fixedDeltaTime;
          Vector2 directionToPlayer = (Player.position - owner.transform.position).normalized;
-        // if (owner.IsFacingRight && directionToPlayer.x < 0 || !owner.IsFacingRight && directionToPlayer.x > 0)
-        // {
-        //     return; //Skip attack if the enemy is not facing the player
-        // }
+        if (owner.IsFacingRight && directionToPlayer.x < 0 || !owner.IsFacingRight && directionToPlayer.x > 0)
+        {
+            owner.Flip();
+        }
 
         if (attackTimer <= attackCooldown && attackTimer>0.8f) // Adjust the timing as needed
         {
