@@ -135,7 +135,7 @@ public class Player : MonoBehaviour
         if (currentHealth == 0)
             Die();
     }
-
+    
     public void UseMana(int amount)
     {
         currentMana = Mathf.Max(0, currentMana - amount);

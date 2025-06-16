@@ -478,7 +478,7 @@ Camera:
   far clip plane: 1000
   field of view: 34
   orthographic: 1
-  orthographic size: 0.4296875
+  orthographic size: 1.9140625
   m_Depth: -1
   m_CullingMask:
     serializedVersion: 2
@@ -1457,6 +1457,7 @@ MonoBehaviour:
   RegenerateResourcesRate: 1
   dashEnergyCost: 20
   IsFacingRight: 1
+  isInvincible: 0
 --- !u!95 &1549783576
 Animator:
   serializedVersion: 7
@@ -1543,8 +1544,8 @@ BoxCollider2D:
   m_Offset: {x: -0.025084019, y: 0.3487806}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
-    pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 0.28235295, y: 0.09375}
+    pivot: {x: 0.32500002, y: 0}
+    oldSize: {x: 0.625, y: 0.96875}
     newSize: {x: 0.625, y: 0.96875}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
