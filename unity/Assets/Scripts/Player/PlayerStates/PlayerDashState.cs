@@ -11,7 +11,7 @@ public class PlayerDashState : PlayerState
     public override void Enter()
     {
         base.Enter();
-
+        player.Invincibilty(true);// Make player invincible during dash
         // Not enough energy? Go back to previous state
         if (player.currentEnergy < player.dashEnergyCost)
         {
@@ -33,8 +33,9 @@ public class PlayerDashState : PlayerState
         player.StartCoroutine(DashCooldown());
     }
     public override void Exit()
-    {
+    {   
         base.Exit();
+        player.Invincibilty(false); // Disable invincibility after dash
         player.PlayAnimation("Idle"); // Reset animation to idle after dash
     }
     public override void LogicUpdate()

@@ -25,7 +25,7 @@ public class MagicProjectile : MonoBehaviour
         if (collision.CompareTag("Player"))
         {   
             Debug.Log("Calling TakeDamage   " + collision.gameObject.name);
-            collision.gameObject.GetComponent<Player>().TakeDamage(20); // Assuming TakeDamage is a method in the Player/Enemy script
+            collision.gameObject.GetComponent<Player>().TakeDamage(20,transform.position); // Assuming TakeDamage is a method in the Player/Enemy script
         }
         hasHit = true;
         animator.SetBool("isHit", true);
