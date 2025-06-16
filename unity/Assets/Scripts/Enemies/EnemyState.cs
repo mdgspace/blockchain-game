@@ -1,3 +1,4 @@
+using NavMeshPlus.Extensions;
 using UnityEngine;
 
 public abstract class BaseEnemyState : State<Enemy>
@@ -11,8 +12,8 @@ public abstract class BaseEnemyState : State<Enemy>
 
     protected void MoveTowards(Vector2 target, float moveSpeed)
     {
-        Vector2 direction = (target - (Vector2)owner.transform.position).normalized;
-        Rb.linearVelocity = direction * moveSpeed;
+        owner.agent.speed = moveSpeed;
+        owner.agent.SetDestination(target);
     }
 
     protected void StopMoving()

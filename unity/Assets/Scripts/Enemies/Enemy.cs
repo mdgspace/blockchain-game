@@ -2,12 +2,15 @@ using System;
 using Unity.IO.LowLevel.Unsafe;
 using Unity.VisualScripting;
 using UnityEngine;
+using UnityEngine.AI;
 
 public class Enemy : MonoBehaviour
 {
     [SerializeField] private Transform playerTransform;
     [SerializeField] private float moveSpeed = 2f;
     public String Name = "Enemy";
+
+    public NavMeshAgent agent;
 
     public float AttackRange = 1.5f;
     public float AttackCooldown = 1f;
@@ -51,6 +54,11 @@ public class Enemy : MonoBehaviour
     void Start()
     {
         RB.freezeRotation = true;
+
+        agent = GetComponent<NavMeshAgent>();
+        agent.updateRotation = false; // Disable automatic rotation to control it manually
+        agent.updateUpAxis = false; // Disable automatic up-axis adjustment if not needed
+
         StateMachine = new StateMachine<Enemy>();
 
         IdleState = new IdleState(this, StateMachine);
@@ -134,9 +142,9 @@ public class Enemy : MonoBehaviour
 
     public void FlipIfNeeded()
     {
-        if (RB.linearVelocityX != 0)
+        if (agent.velocity.x != 0)
         {
-            bool shouldFlip = (RB.linearVelocityX > 0 && !IsFacingRight) || (RB.linearVelocityX < 0 && IsFacingRight);
+            bool shouldFlip = (agent.velocity.x > 0 && !IsFacingRight) || (agent.velocity.x < 0 && IsFacingRight);
             if (shouldFlip)
             {
                 Debug.Log("Flipping" + Name);
