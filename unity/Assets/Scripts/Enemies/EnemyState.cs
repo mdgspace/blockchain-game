@@ -18,6 +18,6 @@ public abstract class BaseEnemyState : State<Enemy>
 
     protected void StopMoving()
     {
-        Rb.linearVelocity = Vector2.zero;
+        owner.agent.speed = 0;
     }
 }

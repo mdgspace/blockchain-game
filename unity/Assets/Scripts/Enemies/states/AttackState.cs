@@ -28,6 +28,7 @@ public class AttackState : BaseEnemyState
 
     public override void LogicUpdate()
     {
+        
         if (!owner.CanSeePlayer())
         {
             stateMachine.ChangeState(owner.FreeRoamingState);
@@ -44,6 +45,7 @@ public class AttackState : BaseEnemyState
 
     public override void PhysicsUpdate()
     {
+        StopMoving();
         base.PhysicsUpdate();
 
         attackTimer += Time.fixedDeltaTime;
@@ -53,11 +55,12 @@ public class AttackState : BaseEnemyState
             owner.Flip();
         }
 
-        if (attackTimer <= attackCooldown && attackTimer>0.8f) // Adjust the timing as needed
+        if (attackTimer <= attackCooldown && attackTimer>1.25f) // Adjust the timing as needed
         {
             // Prepare the animation slightly before the attack executes
             owner.animator.SetBool("isAttacking", false);
-            owner.animator.SetBool("followPlayer", true);
+            owner.animator.SetBool("followPlayer", false);
+            owner.animator.SetBool("freeRoaming", false);
             isAnimationTriggered = true;
         }
         else if (attackTimer >= attackCooldown)
@@ -65,6 +68,7 @@ public class AttackState : BaseEnemyState
             attackTimer = 0f;
             // Disable attack animation until next trigger
             owner.animator.SetBool("isAttacking", true);
+            owner.animator.SetBool("freeRoaming", false);
             owner.animator.SetBool("followPlayer", false);
             isAnimationTriggered = false;
         }
