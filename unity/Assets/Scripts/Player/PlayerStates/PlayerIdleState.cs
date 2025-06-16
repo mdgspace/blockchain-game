@@ -20,5 +20,11 @@ public class PlayerIdleState : PlayerState
         {
             stateMachine.ChangeState(player.moveState);
         }
+        if (InputManager.Instance.DashPressed && player.canDash && player.currentEnergy >= player.dashEnergyCost)
+        {
+            stateMachine.ChangeState(player.dashState);
+            return;
+        }
+
     }
 }

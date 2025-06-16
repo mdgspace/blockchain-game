@@ -63,13 +63,26 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Assets\BlockChain\EthereumReader.cs" />
+    <Compile Include="Assets\Scripts\Player\PlayerStates\PlayerDashState.cs" />
+    <Compile Include="Assets\Scripts\Enemies\states\AttackState.cs" />
+    <Compile Include="Assets\Scripts\Enemies\states\FreeRoamingState.cs" />
+    <Compile Include="Assets\Scripts\Enemies\states\FollowState.cs" />
+    <Compile Include="Assets\Scripts\Enemies\slime\slimeEnemy.cs" />
     <Compile Include="Assets\Scripts\Player\PlayerStates\PlayerIdleState.cs" />
     <Compile Include="Assets\Scripts\Core\InputManager.cs" />
+    <Compile Include="Assets\Scripts\Core\spawner.cs" />
+    <Compile Include="Assets\Scripts\Enemies\wizard\wizardEnemy.cs" />
+    <Compile Include="Assets\Scripts\Core\spawnable.cs" />
     <Compile Include="Assets\Scripts\Core\StateMachine.cs" />
+    <Compile Include="Assets\Scripts\Enemies\states\IdleState.cs" />
     <Compile Include="Assets\CamFollow.cs" />
     <Compile Include="Assets\Scripts\Player\PlayerState.cs" />
+    <Compile Include="Assets\Scripts\Enemies\EnemyState.cs" />
     <Compile Include="Assets\Scripts\Player\OldPlayerController.cs" />
+    <Compile Include="Assets\Scripts\Spells\MagicProjectile.cs" />
+    <Compile Include="Assets\Scripts\Enemies\Enemy.cs" />
     <Compile Include="Assets\PlayerInputActions.cs" />
+    <Compile Include="Assets\Scripts\Core\Destroy.cs" />
     <Compile Include="Assets\Scripts\Player\Player.cs" />
     <Compile Include="Assets\Scripts\Core\State.cs" />
     <Compile Include="Assets\PlayerInputAction.cs" />
@@ -1289,10 +1302,6 @@
       <HintPath>Library\ScriptAssemblies\Unity.RenderPipelines.Core.ShaderLibrary.dll</HintPath>
       <Private>False</Private>
     </Reference>
-    <Reference Include="Unity.PlasticSCM.Editor">
-      <HintPath>Library\ScriptAssemblies\Unity.PlasticSCM.Editor.dll</HintPath>
-      <Private>False</Private>
-    </Reference>
     <Reference Include="Unity.2D.Aseprite.Editor">
       <HintPath>Library\ScriptAssemblies\Unity.2D.Aseprite.Editor.dll</HintPath>
       <Private>False</Private>
@@ -1467,6 +1476,8 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="NavMeshPlus.csproj" />
+    <ProjectReference Include="NavMeshPlusEditor.csproj" />
   </ItemGroup>
   <Import Project="Sdk.targets" Sdk="Microsoft.NET.Sdk" />
   <ItemGroup>

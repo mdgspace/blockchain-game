@@ -12,11 +12,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 04ed822466eb32b4fb4aed63b62ea411, type: 3}
   m_Name: Nawab
   m_EditorClassIdentifier: 
-  playerName: 
-  playerID: 
+  playerName: Nawab
+  playerID: 12345
   level: 1
   isBanned: 0
-  raceName: 
+  raceName: Elf
   equippedItems: []
   offensiveStats:
     damage: 5

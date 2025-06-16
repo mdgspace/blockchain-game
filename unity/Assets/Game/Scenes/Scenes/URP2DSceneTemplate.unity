@@ -583,6 +583,14 @@ PrefabInstance:
       propertyPath: m_Name
       value: GrassTiles
       objectReference: {fileID: 0}
+    - target: {fileID: 2115427223634658517, guid: 71ecc62d7ac67d24eb75bc3318a87e3e, type: 3}
+      propertyPath: m_TileColorArray.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2115427223634658517, guid: 71ecc62d7ac67d24eb75bc3318a87e3e, type: 3}
+      propertyPath: m_TileSpriteArray.Array.size
+      value: 41
+      objectReference: {fileID: 0}
     - target: {fileID: 2459868357414057667, guid: 71ecc62d7ac67d24eb75bc3318a87e3e, type: 3}
       propertyPath: m_LocalPosition.x
       value: 5.563197
@@ -643,10 +651,7 @@ PrefabInstance:
     - {fileID: 8162694944396871048, guid: 71ecc62d7ac67d24eb75bc3318a87e3e, type: 3}
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents:
-    - targetCorrespondingSourceObject: {fileID: 900572174027244700, guid: 71ecc62d7ac67d24eb75bc3318a87e3e, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 267779130}
+    m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 71ecc62d7ac67d24eb75bc3318a87e3e, type: 3}
 --- !u!1 &619394800
 GameObject:

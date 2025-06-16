@@ -6,3 +6,4 @@ obj/*
 Logs/*
 \nLogs/\n*.log
 .fake
+.vs/*
