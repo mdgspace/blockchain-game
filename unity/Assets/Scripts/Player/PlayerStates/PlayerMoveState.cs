@@ -20,6 +20,12 @@ public class PlayerMoveState : PlayerState
         {
             stateMachine.ChangeState(player.idleState);
         }
+        if (InputManager.Instance.DashPressed && player.canDash && player.currentEnergy >= player.dashEnergyCost)
+        {
+            stateMachine.ChangeState(player.dashState);
+            return;
+        }
+
 
         player.FlipIfNeeded(moveInput.x);
     }

@@ -478,7 +478,7 @@ Camera:
   far clip plane: 1000
   field of view: 34
   orthographic: 1
-  orthographic size: 1.5078125
+  orthographic size: 1.8828125
   m_Depth: -1
   m_CullingMask:
     serializedVersion: 2
@@ -1392,7 +1392,7 @@ GameObject:
   - component: {fileID: 1549783578}
   m_Layer: 19
   m_Name: Hero
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1425,7 +1425,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 69b2f5d1896c729439dd7b7e34ac980f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  moveSpeed: 8
+  heroData: {fileID: 11400000, guid: e772d6b34f6819f4cbb112706c89763c, type: 2}
+  currentHealth: 0
+  currentMana: 0
+  currentEnergy: 0
+  moveSpeed: 6
   IsFacingRight: 1
 --- !u!95 &1549783576
 Animator:
@@ -1616,13 +1620,29 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 2558131082274913728, guid: 71ecc62d7ac67d24eb75bc3318a87e3e, type: 3}
+      propertyPath: m_SortingOrder
+      value: -4
+      objectReference: {fileID: 0}
     - target: {fileID: 2824857207602235324, guid: 71ecc62d7ac67d24eb75bc3318a87e3e, type: 3}
       propertyPath: m_Layer
       value: 21
       objectReference: {fileID: 0}
+    - target: {fileID: 3579759281493442865, guid: 71ecc62d7ac67d24eb75bc3318a87e3e, type: 3}
+      propertyPath: m_SortingOrder
+      value: 10
+      objectReference: {fileID: 0}
     - target: {fileID: 3968508272826300783, guid: 71ecc62d7ac67d24eb75bc3318a87e3e, type: 3}
       propertyPath: m_Layer
       value: 21
+      objectReference: {fileID: 0}
+    - target: {fileID: 4150367610392503867, guid: 71ecc62d7ac67d24eb75bc3318a87e3e, type: 3}
+      propertyPath: m_SortingOrder
+      value: -5
+      objectReference: {fileID: 0}
+    - target: {fileID: 4330274706783979776, guid: 71ecc62d7ac67d24eb75bc3318a87e3e, type: 3}
+      propertyPath: m_SortingOrder
+      value: 10
       objectReference: {fileID: 0}
     - target: {fileID: 4560526310796337169, guid: 71ecc62d7ac67d24eb75bc3318a87e3e, type: 3}
       propertyPath: m_Layer
