@@ -4,7 +4,6 @@ using UnityEngine;
 public class PlayerMoveState : PlayerState
 {
     private Vector2 moveInput;
-
     public PlayerMoveState(Player player, StateMachine<Player> stateMachine)
         : base(player, stateMachine) { }
 
