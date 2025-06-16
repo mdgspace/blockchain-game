@@ -15,14 +15,15 @@ public class Player : MonoBehaviour
     public float moveSpeed = 5f;
     [Header("Dash Settings")]
     public float dashSpeed = 15f;
-    public float dashDuration = 0.2f;
-    public float dashCooldown = 1f;
+    public float dashDuration = 1f;
+    public float dashCooldown = 0.5f;
 
     [HideInInspector]
     public bool canDash = true;
 
     [Header("Energy Settings")]
-    public int dashEnergyCost = 20;
+    [SerializeField] public int RegenerateResourcesRate = 1; // How often to regenerate resources (in seconds)
+    public int dashEnergyCost = 40;
 
     [Header("State Machine")]
     public StateMachine<Player> stateMachine { get; private set; }
@@ -39,6 +40,7 @@ public class Player : MonoBehaviour
 
     public Vector2 CurrentVelocity => RB.linearVelocity;
     public bool IsFacingRight = true;
+    private float RegenTimer = 0f;
 
     private void Awake()
     {
@@ -70,8 +72,15 @@ public class Player : MonoBehaviour
     }
 
     private void FixedUpdate()
-    {
+    {   
+        RegenTimer += Time.fixedDeltaTime;
+        if (RegenTimer >= RegenerateResourcesRate)
+        {
+            RegenerateResources();
+            RegenTimer = 0f;
+        }
         stateMachine.PhysicsUpdate();
+        
     }
 
     #region Utility Methods — Called by States

@@ -22,7 +22,7 @@ public class PlayerDashState : PlayerState
 
         // Consume energy
         player.UseEnergy(player.dashEnergyCost);
-
+        player.PlayAnimation("Dash");
         moveInput = InputManager.Instance.MoveDirection.normalized;
         if (moveInput == Vector2.zero)
             moveInput = player.IsFacingRight ? Vector2.right : Vector2.left;
@@ -32,7 +32,11 @@ public class PlayerDashState : PlayerState
 
         player.StartCoroutine(DashCooldown());
     }
-
+    public override void Exit()
+    {
+        base.Exit();
+        player.PlayAnimation("Idle"); // Reset animation to idle after dash
+    }
     public override void LogicUpdate()
     {
         if (Time.time >= dashStartTime + player.dashDuration)
