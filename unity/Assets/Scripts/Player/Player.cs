@@ -10,7 +10,7 @@ public class Player : MonoBehaviour
 
     // Runtime values
     [SerializeField] public int currentHealth;
-    [SerializeField] private int currentMana;
+    [SerializeField] public int currentMana;
     [SerializeField] public int currentEnergy;
     [Header("Movement Settings")]
     public float moveSpeed = 5f;

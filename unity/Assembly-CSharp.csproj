@@ -81,6 +81,7 @@
     <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\TMPro_InstructionOverlay.cs" />
     <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\VertexShakeB.cs" />
     <Compile Include="Assets\Scripts\Core\spawnable.cs" />
+    <Compile Include="Assets\Scripts\Player\PlayerGUI.cs" />
     <Compile Include="Assets\UserInterface.cs" />
     <Compile Include="Assets\Scripts\Core\StateMachine.cs" />
     <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\VertexJitter.cs" />
@@ -143,6 +144,7 @@
     <None Include="Assets\TextMesh Pro\Shaders\TMPro.cginc" />
     <None Include="Assets\Packages\Nethereum.Accounts.5.0.0\lib\netstandard2.0\Nethereum.Accounts.dll" />
     <None Include="Assets\TextMesh Pro\Shaders\TMP_SDF-Mobile Overlay.shader" />
+    <None Include="Assets\Graphics\Fonts\arcadeclassic\pizzadudedotdk.txt" />
     <None Include="Assets\Packages\Microsoft.Extensions.Logging.Abstractions.6.0.0\analyzers\dotnet\roslyn4.0\cs\ru\Microsoft.Extensions.Logging.Generators.resources.dll" />
     <None Include="Assets\Packages\Microsoft.Extensions.Logging.Abstractions.6.0.0\analyzers\dotnet\roslyn4.0\cs\es\Microsoft.Extensions.Logging.Generators.resources.dll" />
     <None Include="Assets\TextMesh Pro\Shaders\TMP_SDF-Mobile-2-Pass.shader" />
@@ -165,6 +167,7 @@
     <None Include="Assets\Packages\Microsoft.Extensions.Logging.Abstractions.6.0.0\analyzers\dotnet\roslyn3.11\cs\it\Microsoft.Extensions.Logging.Generators.resources.dll" />
     <None Include="Assets\Packages\Microsoft.Extensions.Logging.Abstractions.6.0.0\analyzers\dotnet\roslyn3.11\cs\tr\Microsoft.Extensions.Logging.Generators.resources.dll" />
     <None Include="Assets\Packages\Newtonsoft.Json.11.0.2\lib\netstandard2.0\Newtonsoft.Json.dll" />
+    <None Include="Assets\Graphics\GUI\Fantasy Minimal Pixel Art GUI by eta-commercial-free\commercial-free.txt" />
     <None Include="Assets\Packages\Microsoft.Extensions.Logging.Abstractions.6.0.0\lib\netstandard2.0\Microsoft.Extensions.Logging.Abstractions.dll" />
     <None Include="Assets\Packages\Microsoft.Extensions.Logging.Abstractions.6.0.0\analyzers\dotnet\roslyn3.11\cs\de\Microsoft.Extensions.Logging.Generators.resources.dll" />
     <None Include="Assets\Game\Animations\craftpix-net-196564-prototype-pixel-hero-free-sprite-pack-3\Font.txt" />
@@ -199,6 +202,7 @@
     <None Include="Assets\Packages\Microsoft.Extensions.Logging.Abstractions.6.0.0\analyzers\dotnet\roslyn4.0\cs\tr\Microsoft.Extensions.Logging.Generators.resources.dll" />
     <None Include="Assets\Packages\Microsoft.Extensions.Logging.Abstractions.6.0.0\analyzers\dotnet\roslyn4.0\cs\zh-Hant\Microsoft.Extensions.Logging.Generators.resources.dll" />
     <None Include="Assets\Packages\Nethereum.Hex.5.0.0\lib\netstandard2.0\Nethereum.Hex.dll" />
+    <None Include="Assets\Graphics\Fonts\pixel-game\1001fonts-pixel-game-eula.txt" />
     <None Include="Assets\Packages\Microsoft.Extensions.Logging.Abstractions.6.0.0\analyzers\dotnet\roslyn4.0\cs\zh-Hans\Microsoft.Extensions.Logging.Generators.resources.dll" />
     <None Include="Assets\Packages\Microsoft.Extensions.Logging.Abstractions.6.0.0\analyzers\dotnet\roslyn3.11\cs\cs\Microsoft.Extensions.Logging.Generators.resources.dll" />
     <None Include="Assets\TextMesh Pro\Shaders\TMP_SDF-Mobile Masking.shader" />
