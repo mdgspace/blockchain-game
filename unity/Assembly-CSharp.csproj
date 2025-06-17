@@ -123,6 +123,7 @@
     <None Include="Assets\Packages\Microsoft.Extensions.Logging.Abstractions.6.0.0\analyzers\dotnet\roslyn3.11\cs\zh-Hant\Microsoft.Extensions.Logging.Generators.resources.dll" />
     <None Include="Assets\Packages\Nethereum.JsonRpc.Client.5.0.0\lib\netstandard2.0\Nethereum.JsonRpc.Client.dll" />
     <None Include="Assets\TextMesh Pro\Shaders\TMP_Bitmap.shader" />
+    <None Include="Assets\Game\Sprites\pixel-art-dungeon-objects-asset-pack\License.txt" />
     <None Include="Assets\Packages\Portable.BouncyCastle.1.9.0\lib\netstandard2.0\BouncyCastle.Crypto.xml" />
     <None Include="Assets\Packages\Nethereum.BlockchainProcessing.5.0.0\lib\netstandard2.0\Nethereum.BlockchainProcessing.dll" />
     <None Include="Assets\Packages\Microsoft.Extensions.Logging.Abstractions.6.0.0\THIRD-PARTY-NOTICES.TXT" />
@@ -156,6 +157,7 @@
     <None Include="Assets\TextMesh Pro\Resources\LineBreaking Leading Characters.txt" />
     <None Include="Assets\TextMesh Pro\Shaders\TMPro_Properties.cginc" />
     <None Include="Assets\Packages\Microsoft.Extensions.Logging.Abstractions.6.0.0\analyzers\dotnet\roslyn3.11\cs\ru\Microsoft.Extensions.Logging.Generators.resources.dll" />
+    <None Include="Assets\Game\Sprites\pixel-art-dungeon-objects-asset-pack\readme.txt" />
     <None Include="Assets\TextMesh Pro\Shaders\TMPro_Surface.cginc" />
     <None Include="Assets\Packages\Microsoft.Extensions.Logging.Abstractions.6.0.0\analyzers\dotnet\roslyn3.11\cs\ko\Microsoft.Extensions.Logging.Generators.resources.dll" />
     <None Include="Assets\Packages\Microsoft.Extensions.Logging.Abstractions.6.0.0\analyzers\dotnet\roslyn3.11\cs\Microsoft.Extensions.Logging.Generators.dll" />
