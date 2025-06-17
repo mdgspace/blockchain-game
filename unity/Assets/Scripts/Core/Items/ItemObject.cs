@@ -7,9 +7,11 @@ public enum ItemType
     Food,
     Helmet,
     Weapon,
-    Shield,
+    Leggings,
     Boots,
     Chest,
+    Accessory,
+    OffHand,
     Default
 }
 

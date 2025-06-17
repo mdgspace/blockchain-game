@@ -19,6 +19,44 @@ MonoBehaviour:
     Slots:
     - AllowedItems: 01000000
       item:
+        Name: helm 1
+        Id: 5
+        buffs:
+        - attribute: 2
+          value: 12
+          min: 1
+          max: 100
+      amount: 1
+    - AllowedItems: 05000000
+      item:
+        Name: Sword 3
+        Id: 12
+        buffs:
+        - attribute: 0
+          value: 16
+          min: 1
+          max: 100
+        - attribute: 1
+          value: 38
+          min: 1
+          max: 100
+      amount: 1
+    - AllowedItems: 03000000
+      item:
+        Name: Sword 3
+        Id: 12
+        buffs:
+        - attribute: 0
+          value: 16
+          min: 1
+          max: 100
+        - attribute: 1
+          value: 38
+          min: 1
+          max: 100
+      amount: 1
+    - AllowedItems: 04000000
+      item:
         Name: 
         Id: -1
         buffs: []
@@ -29,19 +67,19 @@ MonoBehaviour:
         Id: -1
         buffs: []
       amount: 0
-    - AllowedItems: 0300000002000000
+    - AllowedItems: 07000000
       item:
         Name: 
         Id: -1
         buffs: []
       amount: 0
-    - AllowedItems: 05000000
+    - AllowedItems: 06000000
       item:
         Name: 
         Id: -1
         buffs: []
       amount: 0
-    - AllowedItems: 04000000
+    - AllowedItems: 06000000
       item:
         Name: 
         Id: -1
