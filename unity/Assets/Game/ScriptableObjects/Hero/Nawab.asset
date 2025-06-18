@@ -30,6 +30,6 @@ MonoBehaviour:
     resistances: 
   specialStats:
     maxEnergy: 100
-    energyRegeneration: 10
+    energyRegeneration: 5
     maxMana: 100
-    manaRegeneration: 10
+    manaRegeneration: 5

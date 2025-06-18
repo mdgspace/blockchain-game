@@ -49,7 +49,7 @@ public class Player : MonoBehaviour
     {
         RB = transform.GetComponent<Rigidbody2D>();
         Animator = transform.GetComponent<Animator>();
-
+        Enable_DisableInput(true); // Enable input by default
         currentHealth = heroData.defensiveStats.maxHealth;
         currentMana = heroData.specialStats.maxMana;
         currentEnergy = heroData.specialStats.maxEnergy;
@@ -62,111 +62,15 @@ public class Player : MonoBehaviour
         stunState = new PlayerStunState(this, stateMachine);
         // attackState = new PlayerAttackState(this, stateMachine); // for future
     }
-
-    public InventoryObject inventory;
-    public InventoryObject equipment;
-
-    public Attribute[] attributes;
-
-    public void OnBeforeSlotUpdate(InventorySlot _slot)
+    private void start()
     {
-        if (_slot.ItemObject == null)
-            return;
-        switch (_slot.parent.inventory.type)
-        {
-            case InterfaceType.Inventory:
-                break;
-            case InterfaceType.Equipment:
-                print(string.Concat("Removed ", _slot.ItemObject, " on ", _slot.parent.inventory.type, ", Allowed Items: ", string.Join(", ", _slot.AllowedItems)));
-
-                for (int i = 0; i < _slot.item.buffs.Length; i++)
-                {
-                    for (int j = 0; j < attributes.Length; j++)
-                    {
-                        // if (attributes[j].type == _slot.item.buffs[i].attribute)
-                        //     attributes[j].value.RemoveModifier(_slot.item.buffs[i]);
-                    }
-                }
-
-                break;
-            case InterfaceType.Chest:
-                break;
-            default:
-                break;
-        }
-    }
-    public void OnAfterSlotUpdate(InventorySlot _slot)
-    {
-        if (_slot.ItemObject == null)
-            return;
-        switch (_slot.parent.inventory.type)
-        {
-            case InterfaceType.Inventory:
-                break;
-            case InterfaceType.Equipment:
-                print(string.Concat("Placed ", _slot.ItemObject, " on ", _slot.parent.inventory.type, ", Allowed Items: ", string.Join(", ", _slot.AllowedItems)));
-
-                for (int i = 0; i < _slot.item.buffs.Length; i++)
-                {
-                    for (int j = 0; j < attributes.Length; j++)
-                    {
-                        // if (attributes[j].type == _slot.item.buffs[i].attribute)
-                        //     attributes[j].value.AddModifier(_slot.item.buffs[i]);
-                    }
-                }
-
-                break;
-            case InterfaceType.Chest:
-                break;
-            default:
-                break;
-        }
-    }
-
-
-    public void OnTriggerEnter2D(Collider2D other)
-    {
-        Debug.Log($"Collision with {other.gameObject.name} detected.");
-        if (other.gameObject.CompareTag("GroundItem"))
-        {
-            var groundItem = other.gameObject.GetComponent<GroundItem>();
-            if (groundItem == null || groundItem.item == null)
-            {
-                Debug.Log("GroundItem or item is null, cannot pick up.");
-                return;
-            }
-            Item _item = new Item(groundItem.item);
-            if (inventory.AddItem(_item, 1))
-            {
-                Destroy(other.gameObject);
-            }
-        }
-    }
-    private void Start()
-    {
-        RB.freezeRotation = true;
-        stateMachine.Initialize(idleState);
-        for (int i = 0; i < equipment.GetSlots.Length; i++)
-        {
-            equipment.GetSlots[i].OnBeforeUpdate += OnBeforeSlotUpdate;
-            equipment.GetSlots[i].OnAfterUpdate += OnAfterSlotUpdate;
-        }
-    }
-
+        // Initialize the state machine with the idle state
+        ApplyKnockback(Vector2.zero, 0f, false); // Reset any knockback
+    }   
     private void Update()
     {
         stateMachine.HandleInput();
         stateMachine.LogicUpdate();
-        if (Input.GetKeyDown(KeyCode.Space))
-        {
-            inventory.Save();
-            equipment.Save();
-        }
-        if (Input.GetKeyDown(KeyCode.KeypadEnter))
-        {
-            inventory.Load();
-            equipment.Load();
-        }
     }
 
     private void FixedUpdate()
@@ -181,11 +85,6 @@ public class Player : MonoBehaviour
 
     }
 
-    private void OnApplicationQuit()
-    {
-        inventory.Clear();
-        equipment.Clear();
-    }
     #region Utility Methods — Called by States
 
     public void SetVelocity(Vector2 velocity)

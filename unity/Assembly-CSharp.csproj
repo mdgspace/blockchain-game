@@ -67,6 +67,7 @@
     <Compile Include="Assets\Scripts\Player\PlayerStates\PlayerDashState.cs" />
     <Compile Include="Assets\Scripts\Enemies\states\AttackState.cs" />
     <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\EnvMapAnimator.cs" />
+    <Compile Include="Assets\Scripts\Core\Inventory\StaticInterface.cs" />
     <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\TMP_TextSelector_A.cs" />
     <Compile Include="Assets\Scripts\Enemies\states\FreeRoamingState.cs" />
     <Compile Include="Assets\Scripts\Enemies\states\FollowState.cs" />
@@ -100,6 +101,8 @@
     <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\VertexShakeA.cs" />
     <Compile Include="Assets\Scripts\Player\OldPlayerController.cs" />
     <Compile Include="Assets\Scripts\Spells\MagicProjectile.cs" />
+    <Compile Include="Assets\Scripts\Core\Inventory\UserInterface.cs" />
+    <Compile Include="Assets\Scripts\Player\PlayerInventoryHandler.cs" />
     <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\Benchmark01_UGUI.cs" />
     <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\SimpleScript.cs" />
     <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\Benchmark04.cs" />
@@ -107,6 +110,7 @@
     <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\ChatController.cs" />
     <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\TMP_DigitValidator.cs" />
     <Compile Include="Assets\Scripts\Core\Managers\GameStates\InventoryOpenState.cs" />
+    <Compile Include="Assets\Scripts\Core\Items\Billboard.cs" />
     <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\TMP_FrameRateCounter.cs" />
     <Compile Include="Assets\Scripts\Core\Inventory\InventoryObject.cs" />
     <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\Benchmark01.cs" />
@@ -129,14 +133,13 @@
     <Compile Include="Assets\Scripts\Core\Inventory\ModifiableInt.cs" />
     <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\TeleType.cs" />
     <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\TMP_TextEventCheck.cs" />
-    <Compile Include="Assets\Scripts\Ui\UserInterface.cs" />
+    <Compile Include="Assets\Scripts\Core\Items\ItemDataTypes.cs" />
     <Compile Include="Assets\PlayerInputAction.cs" />
     <Compile Include="Assets\Scripts\Player\HeroData.cs" />
     <Compile Include="Assets\Scripts\Core\Managers\GameStates\PausedState.cs" />
     <Compile Include="Assets\Scripts\Player\PlayerStates\PlayerMoveState.cs" />
     <Compile Include="Assets\Scripts\Core\Inventory\DynamicInterface.cs" />
     <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\TextMeshProFloatingText.cs" />
-    <Compile Include="Assets\Scripts\Ui\StaticInterface.cs" />
     <Compile Include="Assets\Scripts\Core\Inventory\IModifiers.cs" />
     <Compile Include="Assets\Scripts\Enemies\states\StunState.cs" />
   </ItemGroup>
