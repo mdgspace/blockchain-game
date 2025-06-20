@@ -6,6 +6,7 @@ TagManager:
   tags:
   - GroundItem
   - InventoryCanvas
+  - ConversationCanvas
   layers:
   - Default
   - TransparentFX
