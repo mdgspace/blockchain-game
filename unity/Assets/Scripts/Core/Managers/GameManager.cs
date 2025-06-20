@@ -1,10 +1,16 @@
 using UnityEngine;
 
+
 public class GameManager : MonoBehaviour
 {
     public static GameManager Instance { get; private set; }
 
     private StateMachine<GameManager> gameStateMachine;
+
+    #region GameManagerReferences
+    [SerializeField] private GameObject pauseUI;
+    private GameObject inventoryUI;
+    #endregion
 
     void Awake()
     {
@@ -18,6 +24,7 @@ public class GameManager : MonoBehaviour
         DontDestroyOnLoad(gameObject); // Persist across scenes
 
         gameStateMachine = new StateMachine<GameManager>();
+        inventoryUI = GameObject.FindGameObjectWithTag("InventoryCanvas");
     }
 
     void Start()
@@ -44,12 +51,24 @@ public class GameManager : MonoBehaviour
 
     public void ShowInventoryUI()
     {
+        if(inventoryUI == null)
+        {
+            Debug.LogError("Inventory UI not found! Make sure it has the tag 'InventoryCanvas'.");
+            return;
+        }
+        inventoryUI.GetComponent<Canvas>().enabled = true;
         Debug.Log("Showing inventory UI");
         // e.g., InventoryUI.SetActive(true);
     }
 
     public void HideInventoryUI()
     {
+        if(inventoryUI == null)
+        {
+            Debug.LogError("Inventory UI not found! Make sure it has the tag 'InventoryCanvas'.");
+            return;
+        }
+        inventoryUI.GetComponent<Canvas>().enabled = false;
         Debug.Log("Hiding inventory UI");
     }
 

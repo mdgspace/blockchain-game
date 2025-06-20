@@ -62,10 +62,10 @@ public class Player : MonoBehaviour
         stunState = new PlayerStunState(this, stateMachine);
         // attackState = new PlayerAttackState(this, stateMachine); // for future
     }
-    private void start()
+    private void Start()
     {
         // Initialize the state machine with the idle state
-        ApplyKnockback(Vector2.zero, 0f, false); // Reset any knockback
+        stateMachine.Initialize(idleState);
     }   
     private void Update()
     {

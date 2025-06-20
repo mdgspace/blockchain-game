@@ -10,6 +10,7 @@ public class PlayerMoveState : PlayerState
     public override void Enter()
     {
         //player.PlayAnimation("Run");
+        player.Animator.SetBool("dashing", false);
     }
 
     public override void LogicUpdate()
@@ -25,7 +26,17 @@ public class PlayerMoveState : PlayerState
             stateMachine.ChangeState(player.dashState);
             return;
         }
-
+        
+        if(moveInput.y > 0)
+        {
+            player.Animator.SetBool("walkingUp", true);
+            player.Animator.SetBool("walking", false);
+        }
+        else
+        {
+            player.Animator.SetBool("walkingUp", false);
+            player.Animator.SetBool("walking", true);
+        }
 
         player.FlipIfNeeded(moveInput.x);
     }

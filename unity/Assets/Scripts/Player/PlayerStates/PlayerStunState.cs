@@ -11,6 +11,9 @@ public class PlayerStunState : PlayerState
     public override void Enter()
     {
         base.Enter();
+        player.Animator.SetBool("walking", false); 
+        player.Animator.SetBool("walkingUp", false);
+        player.Animator.SetBool("dashing", false);
         player.Enable_DisableInput(false); // Disable input
         startTime = Time.time;
         player.SetVelocity(Vector2.zero); // Optional freeze
