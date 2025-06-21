@@ -1,5 +1,6 @@
 using System;
 using System.Collections;
+using System.Collections.Generic;
 using UnityEngine;
 
 [RequireComponent(typeof(Rigidbody2D), typeof(Animator))]
@@ -34,12 +35,18 @@ public class Player : MonoBehaviour
     public PlayerMoveState moveState { get; private set; }
     public PlayerDashState dashState { get; private set; }
     public PlayerStunState stunState { get; private set; }
+    public PlayerAttackState attackState { get; private set; } 
     // public PlayerAttackState attackState { get; private set; } // for future
 
     [Header("Components")]
     public Rigidbody2D RB { get; private set; }
     public Animator Animator { get; private set; }
 
+    private attackHandler attackHandler; // Reference to the attack handler script
+
+    [SerializeField] private BoxCollider2D attackHitbox; // Reference to the attack hitbox GameObject
+    [SerializeField] private LayerMask enemyLayer;
+    private HashSet<GameObject> hitEnemies = new HashSet<GameObject>();
     public Vector2 CurrentVelocity => RB.linearVelocity;
     public bool IsFacingRight = true;
     private float RegenTimer = 0f;
@@ -56,11 +63,13 @@ public class Player : MonoBehaviour
 
         stateMachine = new StateMachine<Player>();
 
+        attackHandler = GetComponentInChildren<attackHandler>();
+
         idleState = new PlayerIdleState(this, stateMachine);
         moveState = new PlayerMoveState(this, stateMachine);
         dashState = new PlayerDashState(this, stateMachine);
         stunState = new PlayerStunState(this, stateMachine);
-        // attackState = new PlayerAttackState(this, stateMachine); // for future
+        attackState = new PlayerAttackState(this, stateMachine); // for future
     }
     private void Start()
     {
@@ -199,6 +208,33 @@ public class Player : MonoBehaviour
     {
         throw new NotImplementedException();
     }
+
+    public void EnableHitboxDef(bool value)
+    {
+        attackHitbox.enabled = value;
+        if (value)
+            ClearHitEnemies(); // reset before each swing
+    }
+    public void EnableHitbox()
+    {
+        EnableHitboxDef(true);
+    }
+
+    public void DisableHitbox()
+    {
+        EnableHitboxDef(false);
+    }
+
+    public void ClearHitEnemies()
+    {
+        attackHandler.ClearHitEnemies();
+    }
+
+    public void AttackDone()
+    {
+        (stateMachine.CurrentState as PlayerAttackState)?.OnAttackAnimationComplete();
+    }
+
 
     #endregion
 }

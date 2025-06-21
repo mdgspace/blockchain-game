@@ -23,6 +23,7 @@ public class PlayerDashState : PlayerState
         player.Animator.SetBool("dashing", true);
         player.Animator.SetBool("walking", false);
         player.Animator.SetBool("walkingUp", false);
+        player.Animator.SetBool("walkingDown", false);
         // Consume energy
         player.UseEnergy(player.dashEnergyCost);
         moveInput = InputManager.Instance.MoveDirection.normalized;
