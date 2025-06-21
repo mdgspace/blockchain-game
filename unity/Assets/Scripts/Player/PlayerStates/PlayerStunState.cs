@@ -13,6 +13,7 @@ public class PlayerStunState : PlayerState
         base.Enter();
         player.Animator.SetBool("walking", false); 
         player.Animator.SetBool("walkingUp", false);
+        player.Animator.SetBool("walkingDown", false);
         player.Animator.SetBool("dashing", false);
         player.Enable_DisableInput(false); // Disable input
         startTime = Time.time;

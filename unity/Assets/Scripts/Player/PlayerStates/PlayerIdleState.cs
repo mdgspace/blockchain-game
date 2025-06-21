@@ -1,4 +1,5 @@
 using UnityEngine;
+       
 public class PlayerIdleState : PlayerState
 {
     private Vector2 moveInput;
@@ -12,7 +13,7 @@ public class PlayerIdleState : PlayerState
         player.Animator.SetBool("walking", false);
         player.Animator.SetBool("walkingUp", false);
         player.Animator.SetBool("dashing", false);
-        player.Enable_DisableInput(true);
+        player.Animator.SetBool("walkingDown", false);
         player.SetVelocity(Vector2.zero);
         Debug.Log("Player has entered idle state.");
     }
@@ -22,6 +23,12 @@ public class PlayerIdleState : PlayerState
         base.HandleInput();
         //Debug.Log("Player is idle, waiting for input...");
         moveInput = InputManager.Instance.MoveDirection;
+
+        if (InputManager.Instance.AttackPressed)
+        {
+            stateMachine.ChangeState(player.attackState);
+            return;
+        }
 
         if (moveInput != Vector2.zero)
         {
