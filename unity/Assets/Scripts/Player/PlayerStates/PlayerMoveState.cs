@@ -14,13 +14,15 @@ public class PlayerMoveState : PlayerState
     }
 
     public override void LogicUpdate()
-    {
+    {   
+        base.LogicUpdate();
         moveInput = InputManager.Instance.MoveDirection;
 
         if (moveInput == Vector2.zero)
         {
-            Debug.Log("Player has stopped moving.");
+            //Debug.Log("Player has stopped moving.");
             stateMachine.ChangeState(player.idleState);
+            return;
         }
         if (InputManager.Instance.DashPressed && player.canDash && player.currentEnergy >= player.dashEnergyCost)
         {
@@ -39,7 +41,7 @@ public class PlayerMoveState : PlayerState
             player.Animator.SetBool("walking", false);
             player.Animator.SetBool("walkingDown", false);
         }
-        else if(moveInput.y < 0)
+        else if (moveInput.y < 0)
         {
             player.Animator.SetBool("walkingUp", false);
             player.Animator.SetBool("walkingDown", true);
@@ -62,6 +64,9 @@ public class PlayerMoveState : PlayerState
 
     public override void Exit()
     {
+        Debug.Log("CHal raha hai kya");
+        player.Animator.SetBool("walkingUp", false);
+        player.Animator.SetBool("walkingDown", false);
         player.Animator.SetBool("walking", false);
     }
 }

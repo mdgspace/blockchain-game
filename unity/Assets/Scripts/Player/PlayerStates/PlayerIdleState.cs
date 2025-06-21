@@ -8,12 +8,14 @@ public class PlayerIdleState : PlayerState
         : base(player, stateMachine) { }
 
     public override void Enter()
-    {   
+    {
         //Debug.Log("Player has entered idle state.");
         player.Animator.SetBool("walking", false);
         player.Animator.SetBool("walkingUp", false);
         player.Animator.SetBool("dashing", false);
         player.Animator.SetBool("walkingDown", false);
+        player.Animator.SetBool("attacking", false);
+        player.Animator.SetBool("stunned", false);
         player.SetVelocity(Vector2.zero);
         Debug.Log("Player has entered idle state.");
     }
@@ -31,7 +33,8 @@ public class PlayerIdleState : PlayerState
         }
 
         if (moveInput != Vector2.zero)
-        {
+        {   
+            //Debug.Log("Player has started moving.");
             stateMachine.ChangeState(player.moveState);
         }
         if (InputManager.Instance.DashPressed && player.canDash && player.currentEnergy >= player.dashEnergyCost)
