@@ -25,14 +25,15 @@ public class PlayerAttackState : PlayerState
     {
         if (attackComplete)
         {
-            if (InputManager.Instance.MoveDirection != Vector2.zero)
-                stateMachine.ChangeState(player.moveState);
-            else
-                stateMachine.ChangeState(player.idleState);
+            stateMachine.ChangeState(player.noAttackState);
         }
     }
 
-    public void OnAttackAnimationComplete() => attackComplete = true;
+    public void OnAttackAnimationComplete()
+    {
+        attackComplete = true;
+        Debug.Log("Attack animation completed.");
+    }
 
     public override void Exit()
     {

@@ -23,7 +23,7 @@ public class PlayerStunState : PlayerState
     {
         base.Exit();
         player.Enable_DisableInput(true); // Re-enable input
-        player.PlayAnimation("Idle"); // Reset animation to idle after stun
+         // Reset animation to idle after stun
     }
     public override void LogicUpdate()
     {

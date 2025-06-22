@@ -29,6 +29,7 @@ public class Player : MonoBehaviour
 
     [Header("State Machine")]
     public StateMachine<Player> stateMachine { get; private set; }
+    public StateMachine<Player> AttackStateMachine { get; private set; } 
 
     // Player States (Add more later)
     public PlayerIdleState idleState { get; private set; }
@@ -36,6 +37,8 @@ public class Player : MonoBehaviour
     public PlayerDashState dashState { get; private set; }
     public PlayerStunState stunState { get; private set; }
     public PlayerAttackState attackState { get; private set; } 
+    public PlayerNoAttackState noAttackState { get; private set; } 
+
     // public PlayerAttackState attackState { get; private set; } // for future
 
     [Header("Components")]
@@ -46,7 +49,6 @@ public class Player : MonoBehaviour
 
     [SerializeField] private BoxCollider2D attackHitbox; // Reference to the attack hitbox GameObject
     [SerializeField] private LayerMask enemyLayer;
-    private HashSet<GameObject> hitEnemies = new HashSet<GameObject>();
     public Vector2 CurrentVelocity => RB.linearVelocity;
     public bool IsFacingRight = true;
     private float RegenTimer = 0f;
@@ -62,6 +64,7 @@ public class Player : MonoBehaviour
         currentEnergy = heroData.specialStats.maxEnergy;
 
         stateMachine = new StateMachine<Player>();
+        AttackStateMachine = new StateMachine<Player>();
 
         attackHandler = GetComponentInChildren<attackHandler>();
 
@@ -69,17 +72,20 @@ public class Player : MonoBehaviour
         moveState = new PlayerMoveState(this, stateMachine);
         dashState = new PlayerDashState(this, stateMachine);
         stunState = new PlayerStunState(this, stateMachine);
-        attackState = new PlayerAttackState(this, stateMachine); // for future
+        attackState = new PlayerAttackState(this, AttackStateMachine); 
+        noAttackState = new PlayerNoAttackState(this, AttackStateMachine);
     }
     private void Start()
     {
-        // Initialize the state machine with the idle state
+        AttackStateMachine.Initialize(noAttackState); // Start with no attack state
         stateMachine.Initialize(idleState);
     }   
     private void Update()
     {
         stateMachine.HandleInput();
         stateMachine.LogicUpdate();
+        AttackStateMachine.HandleInput();
+        AttackStateMachine.LogicUpdate();
     }
 
     private void FixedUpdate()
@@ -91,7 +97,7 @@ public class Player : MonoBehaviour
             RegenTimer = 0f;
         }
         stateMachine.PhysicsUpdate();
-
+        AttackStateMachine.PhysicsUpdate();
     }
 
     #region Utility Methods — Called by States
@@ -232,7 +238,7 @@ public class Player : MonoBehaviour
 
     public void AttackDone()
     {
-        (stateMachine.CurrentState as PlayerAttackState)?.OnAttackAnimationComplete();
+        (AttackStateMachine.CurrentState as PlayerAttackState)?.OnAttackAnimationComplete();
     }
 
 

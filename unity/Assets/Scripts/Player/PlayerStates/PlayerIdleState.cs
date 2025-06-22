@@ -25,13 +25,6 @@ public class PlayerIdleState : PlayerState
         base.HandleInput();
         //Debug.Log("Player is idle, waiting for input...");
         moveInput = InputManager.Instance.MoveDirection;
-
-        if (InputManager.Instance.AttackPressed)
-        {
-            stateMachine.ChangeState(player.attackState);
-            return;
-        }
-
         if (moveInput != Vector2.zero)
         {   
             //Debug.Log("Player has started moving.");
