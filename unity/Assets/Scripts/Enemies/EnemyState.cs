@@ -12,12 +12,16 @@ public abstract class BaseEnemyState : State<Enemy>
 
     protected void MoveTowards(Vector2 target, float moveSpeed)
     {
-        owner.agent.speed = moveSpeed;
-        owner.agent.SetDestination(target);
+        if(owner.agent.isActiveAndEnabled)
+        {
+            owner.agent.speed = moveSpeed;
+            owner.agent.SetDestination(target);
+        }
     }
 
     protected void StopMoving()
     {
         owner.agent.speed = 0;
+        //owner.RB.linearVelocity = Vector2.zero;
     }
 }

@@ -152,7 +152,7 @@ public class Enemy : MonoBehaviour
         int effectiveDamage = Mathf.Max(0, damage);
 
         currentHealth = Mathf.Max(0, currentHealth - effectiveDamage);
-
+        animator.SetBool("isHit", true);
         Debug.Log(sourcePos);
         Debug.Log(transform.position);
         Debug.Log(transform.position - sourcePos);
@@ -162,8 +162,11 @@ public class Enemy : MonoBehaviour
         Debug.Log(knockbackDirection);
         if (applyKnockback)
             ApplyKnockback(knockbackDirection, applyStun, 5f);
+
         if (currentHealth == 0)
             Die();
+
+        
     }
     public void ApplyKnockback(Vector2 direction, bool applyStun, float force= 0.1f,  float duration = 0.2f)
     {
@@ -205,6 +208,7 @@ public class Enemy : MonoBehaviour
     
     public void Die()
     {
+        animator.SetBool("isDead", true);
         Debug.Log(Name + " has died.");
         //TODO: Implement death logic, like playing a death animation, dropping loot, etc.
         onDeath();
@@ -218,5 +222,10 @@ public class Enemy : MonoBehaviour
     {
         // Override this method to implement custom death behavior
         Debug.Log(Name + " has been defeated!");
+    }
+
+    public void hitAnimComplete()
+    {
+        animator.SetBool("isHit", false);
     }
 }
