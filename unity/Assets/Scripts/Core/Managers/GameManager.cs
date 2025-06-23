@@ -46,7 +46,7 @@ public class GameManager : MonoBehaviour
 
     public void ShowGameplayUI()
     {
-        Debug.Log("Showing gameplay UI");
+        //Debug.Log("Showing gameplay UI");
         // e.g., HUD.SetActive(true);
     }
 

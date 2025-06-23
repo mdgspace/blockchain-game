@@ -6462,7 +6462,7 @@ Camera:
   far clip plane: 1000
   field of view: 34
   orthographic: 1
-  orthographic size: 1.265625
+  orthographic size: 2.984375
   m_Depth: -1
   m_CullingMask:
     serializedVersion: 2
@@ -9653,6 +9653,11 @@ MonoBehaviour:
   enemyLayer:
     serializedVersion: 2
     m_Bits: 2048
+  heroData: {fileID: 11400000, guid: e772d6b34f6819f4cbb112706c89763c, type: 2}
+  dealsKnockback: 1
+  dealsStun: 0
+  weaponType: Physical
+  player: {fileID: 0}
 --- !u!114 &1820963663
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -10954,7 +10959,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6964972613293325350, guid: 74dc2adce21b55f4188cb19ac3932fce, type: 3}
       propertyPath: AttackCooldown
-      value: 3
+      value: 14.05
       objectReference: {fileID: 0}
     - target: {fileID: 6964972613293325350, guid: 74dc2adce21b55f4188cb19ac3932fce, type: 3}
       propertyPath: playerTransform

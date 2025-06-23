@@ -19,7 +19,7 @@ public class MagicProjectile : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision)
     {   
-        Debug.Log("Magic Projectile Hit: " + collision.gameObject.name);
+        //Debug.Log("Magic Projectile Hit: " + collision.gameObject.name);
         if (hasHit) return; // prevent multiple hits
                             //if (collision.CompareTag("Enemy") || collision.CompareTag("Projectile")) return; // optional ignore
         if (collision.CompareTag("Player"))

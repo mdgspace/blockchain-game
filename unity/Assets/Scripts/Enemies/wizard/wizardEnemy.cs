@@ -10,7 +10,7 @@ public class wizardEnemy : Enemy
 
 public override void PerformAttack()
 {   
-    Debug.Log("Performing Magic Attack");
+    //Debug.Log("Performing Magic Attack");
     if (magicProjectilePrefab == null)
     {
         Debug.LogError("Magic Projectile Prefab is not assigned!");
@@ -34,7 +34,7 @@ public override void PerformAttack()
     if (rb != null)
         rb.linearVelocity =directionToPlayer * projectileSpeed;
 
-    Debug.Log("Wizard Enemy Attacks with Magic!");
+    //Debug.Log("Wizard Enemy Attacks with Magic!");
 }
 
 }

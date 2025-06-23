@@ -7,14 +7,14 @@ public class InGameState : State<GameManager>
 
     public override void Enter()
     {
-        Debug.Log("Entered InGame State");
+        //Debug.Log("Entered InGame State");
         Time.timeScale = 1f;
         owner.ShowGameplayUI();
     }
 
     public override void Exit()
     {
-        Debug.Log("Exiting InGame State");
+        //Debug.Log("Exiting InGame State");
     }
 
     public override void HandleInput()

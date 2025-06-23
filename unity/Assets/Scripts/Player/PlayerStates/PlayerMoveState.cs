@@ -59,7 +59,7 @@ public class PlayerMoveState : PlayerState
 
     public override void Exit()
     {
-        Debug.Log("CHal raha hai kya");
+        //Debug.Log("CHal raha hai kya");
         player.Animator.SetBool("walkingUp", false);
         player.Animator.SetBool("walkingDown", false);
         player.Animator.SetBool("walking", false);
