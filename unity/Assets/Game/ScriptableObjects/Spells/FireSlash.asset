@@ -12,13 +12,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d0167b4a97f069f4d816b76d9abc8626, type: 3}
   m_Name: FireSlash
   m_EditorClassIdentifier: 
-  spellName: 
+  spellName: FireSlash
   element: 0
   category: 0
-  visualPrefab: {fileID: 0}
-  manaCost: 0
+  visualPrefab: {fileID: 2895834301900257236, guid: 0335bb050ef2fca40948d6f5dc3cf16e, type: 3}
+  manaCost: 10
   cooldown: 0
-  attackSubtype: 0
+  attackSubtype: 1
   attackData:
     aoeData:
       shape: 0

@@ -1,6 +1,6 @@
 using UnityEngine;
 
-public enum ElementType { Fire, Water, Earth, Wind }
+public enum ElementType { Fire, Water, Lightning, Wind }
 public enum SpellCategory { Attack, Buff }
 public enum AttackSubtype { AoE, Projectile, ShortRange }
 
