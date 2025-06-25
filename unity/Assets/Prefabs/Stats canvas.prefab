@@ -163,7 +163,7 @@ GameObject:
   - component: {fileID: 878887453636661984}
   - component: {fileID: 1661854907350039870}
   m_Layer: 5
-  m_Name: Cons + (4)
+  m_Name: increase stamina
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -269,7 +269,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 878887453636661984}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 6189276678923993837}
+        m_TargetAssemblyTypeName: StatsFunctions, Assembly-CSharp
+        m_MethodName: increaseStamina
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!1 &152010916339583416
 GameObject:
   m_ObjectHideFlags: 0
@@ -358,7 +370,7 @@ GameObject:
   - component: {fileID: 2822234148789166471}
   - component: {fileID: 4606349522816061471}
   m_Layer: 5
-  m_Name: Cons -
+  m_Name: decrease constitution
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -464,7 +476,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 2822234148789166471}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 6189276678923993837}
+        m_TargetAssemblyTypeName: StatsFunctions, Assembly-CSharp
+        m_MethodName: decreaseConstitution
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!1 &354150373332615436
 GameObject:
   m_ObjectHideFlags: 0
@@ -1732,7 +1756,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 4254404975782602786}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 6189276678923993837}
+        m_TargetAssemblyTypeName: StatsFunctions, Assembly-CSharp
+        m_MethodName: confirm
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!1 &1059542187453850251
 GameObject:
   m_ObjectHideFlags: 0
@@ -1821,7 +1857,7 @@ GameObject:
   - component: {fileID: 6468403612376876426}
   - component: {fileID: 3911324590162504934}
   m_Layer: 5
-  m_Name: Cons - (3)
+  m_Name: decrease intelligence
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1927,7 +1963,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 6468403612376876426}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 6189276678923993837}
+        m_TargetAssemblyTypeName: StatsFunctions, Assembly-CSharp
+        m_MethodName: decreaseIntelligence
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!1 &1236142331095351000
 GameObject:
   m_ObjectHideFlags: 0
@@ -2076,7 +2124,7 @@ GameObject:
   - component: {fileID: 7437679478014596512}
   - component: {fileID: 4488884883629716112}
   m_Layer: 5
-  m_Name: Cons txt (4)
+  m_Name: sta text
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2303,7 +2351,7 @@ GameObject:
   - component: {fileID: 3778117830255051399}
   - component: {fileID: 7666944628286553808}
   m_Layer: 5
-  m_Name: Cons - (5)
+  m_Name: decrease agility
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2409,7 +2457,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 3778117830255051399}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 6189276678923993837}
+        m_TargetAssemblyTypeName: StatsFunctions, Assembly-CSharp
+        m_MethodName: decreaseAgility
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!1 &1378026717338551347
 GameObject:
   m_ObjectHideFlags: 0
@@ -2904,7 +2964,7 @@ GameObject:
   - component: {fileID: 6926066699024520807}
   - component: {fileID: 1162883002584813322}
   m_Layer: 5
-  m_Name: Cons + (1)
+  m_Name: Increase strength
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -3010,7 +3070,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 6926066699024520807}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 6189276678923993837}
+        m_TargetAssemblyTypeName: StatsFunctions, Assembly-CSharp
+        m_MethodName: increaseStrength
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!1 &1802887728690055863
 GameObject:
   m_ObjectHideFlags: 0
@@ -3792,7 +3864,7 @@ GameObject:
   - component: {fileID: 4622856780005218138}
   - component: {fileID: 8425113593888009733}
   m_Layer: 5
-  m_Name: Cons - (4)
+  m_Name: decrease stamina
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -3898,7 +3970,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 4622856780005218138}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 6189276678923993837}
+        m_TargetAssemblyTypeName: StatsFunctions, Assembly-CSharp
+        m_MethodName: decreaseStamina
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!1 &2550897084954149384
 GameObject:
   m_ObjectHideFlags: 0
@@ -4313,7 +4397,7 @@ GameObject:
   - component: {fileID: 8149051894242632880}
   - component: {fileID: 4509268679341564362}
   m_Layer: 5
-  m_Name: Cons txt (3)
+  m_Name: int txt
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -5235,7 +5319,7 @@ GameObject:
   - component: {fileID: 8788475303840292205}
   - component: {fileID: 7560741057289748067}
   m_Layer: 5
-  m_Name: Cons + (3)
+  m_Name: increase intelligence
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -5341,7 +5425,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 8788475303840292205}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 6189276678923993837}
+        m_TargetAssemblyTypeName: StatsFunctions, Assembly-CSharp
+        m_MethodName: increaseIntelligence
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!1 &4569921369017457704
 GameObject:
   m_ObjectHideFlags: 0
@@ -6004,7 +6100,7 @@ GameObject:
   - component: {fileID: 1550590040816872267}
   - component: {fileID: 6937973865376865727}
   m_Layer: 5
-  m_Name: Cons txt (1)
+  m_Name: str text
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -6428,7 +6524,7 @@ GameObject:
   - component: {fileID: 4980536327505487542}
   - component: {fileID: 265538130518259783}
   m_Layer: 5
-  m_Name: Cons + (2)
+  m_Name: increase dexterity
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -6534,7 +6630,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 4980536327505487542}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 6189276678923993837}
+        m_TargetAssemblyTypeName: StatsFunctions, Assembly-CSharp
+        m_MethodName: increaseDexterity
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!1 &5721275930607764378
 GameObject:
   m_ObjectHideFlags: 0
@@ -7893,7 +8001,7 @@ GameObject:
   - component: {fileID: 7644281724298314560}
   - component: {fileID: 5316985581425857469}
   m_Layer: 5
-  m_Name: Cons - (2)
+  m_Name: decrease dexterity
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -7999,7 +8107,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 7644281724298314560}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 6189276678923993837}
+        m_TargetAssemblyTypeName: StatsFunctions, Assembly-CSharp
+        m_MethodName: decreaseDexterity
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!1 &7153501220524857803
 GameObject:
   m_ObjectHideFlags: 0
@@ -8267,6 +8387,7 @@ GameObject:
   - component: {fileID: 7713403391073603528}
   - component: {fileID: 4456294900424883839}
   - component: {fileID: 5554368935668433275}
+  - component: {fileID: 6189276678923993837}
   m_Layer: 5
   m_Name: Stats canvas
   m_TagString: Untagged
@@ -8357,6 +8478,24 @@ MonoBehaviour:
   m_BlockingMask:
     serializedVersion: 2
     m_Bits: 4294967295
+--- !u!114 &6189276678923993837
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7285081725834437630}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 862c46416858b094aaab5ada03a4b95d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  strengthText: {fileID: 4137726472681602672}
+  dexterityText: {fileID: 4762524440451006162}
+  constitutionText: {fileID: 6175282934275875002}
+  intelligenceText: {fileID: 9195977759598327185}
+  staminaText: {fileID: 5140012997010903140}
+  agilityText: {fileID: 2817900802621243681}
 --- !u!1 &7359251353208578476
 GameObject:
   m_ObjectHideFlags: 0
@@ -8641,7 +8780,7 @@ GameObject:
   - component: {fileID: 6726237621241623350}
   - component: {fileID: 1787545073772572954}
   m_Layer: 5
-  m_Name: Cons txt (5)
+  m_Name: agility text
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -9202,7 +9341,7 @@ GameObject:
   - component: {fileID: 4584919699279534264}
   - component: {fileID: 121560059749624614}
   m_Layer: 5
-  m_Name: Cons - (1)
+  m_Name: decrease strength
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -9308,7 +9447,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 4584919699279534264}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 6189276678923993837}
+        m_TargetAssemblyTypeName: StatsFunctions, Assembly-CSharp
+        m_MethodName: decreaseStrength
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!1 &8013871614955801244
 GameObject:
   m_ObjectHideFlags: 0
@@ -9322,7 +9473,7 @@ GameObject:
   - component: {fileID: 4349594944086748156}
   - component: {fileID: 7229970856256889824}
   m_Layer: 5
-  m_Name: Cons +
+  m_Name: increase constitution
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -9428,7 +9579,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 4349594944086748156}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 6189276678923993837}
+        m_TargetAssemblyTypeName: StatsFunctions, Assembly-CSharp
+        m_MethodName: increaseConstitution
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!1 &8392135311251306939
 GameObject:
   m_ObjectHideFlags: 0
@@ -9925,7 +10088,7 @@ GameObject:
   - component: {fileID: 6250967710071648188}
   - component: {fileID: 7258294317304963432}
   m_Layer: 5
-  m_Name: Cons + (5)
+  m_Name: increase agility
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -10031,7 +10194,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 6250967710071648188}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 6189276678923993837}
+        m_TargetAssemblyTypeName: StatsFunctions, Assembly-CSharp
+        m_MethodName: increaseAgility
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!1 &8795940692295197371
 GameObject:
   m_ObjectHideFlags: 0
@@ -10481,7 +10656,7 @@ GameObject:
   - component: {fileID: 903993255772312152}
   - component: {fileID: 7494684904505816355}
   m_Layer: 5
-  m_Name: Cons txt (2)
+  m_Name: dex txt
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

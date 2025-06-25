@@ -17,6 +17,9 @@ public class Enemy : MonoBehaviour
     public float AttackRange = 1.5f;
     public float AttackCooldown = 1f;
     public float knockbackForce = 5f; // Force applied when knocked back
+    public float maxExpAward;
+    public float minExpAward;
+    private float expAward;
     public String Name = "Enemy";
 
     public NavMeshAgent agent;
@@ -208,6 +211,10 @@ public class Enemy : MonoBehaviour
     
     public void Die()
     {
+
+        expAward = UnityEngine.Random.Range(minExpAward, maxExpAward);
+        ProgressManager.Instance.AddExperience(expAward);
+
         animator.SetBool("isDead", true);
         Debug.Log(Name + " has died.");
         //TODO: Implement death logic, like playing a death animation, dropping loot, etc.
