@@ -10,13 +10,13 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: d0167b4a97f069f4d816b76d9abc8626, type: 3}
-  m_Name: CircularWater
+  m_Name: PoisonSting
   m_EditorClassIdentifier: 
-  spellName: WaterDiscs
-  element: 1
+  spellName: PoisonSting
+  element: 2
   category: 0
-  visualPrefab: {fileID: 7583309771101132855, guid: cefc61ca73bab874a9bd4643e83d70d1, type: 3}
-  manaCost: 30
+  visualPrefab: {fileID: 329099338094097531, guid: 95e6aefe529b4d94e847d46a53a2d8d0, type: 3}
+  manaCost: 0
   cooldown: 0
   attackSubtype: 1
   attackData:
@@ -29,20 +29,19 @@ MonoBehaviour:
     projectileData:
       targetLayerMask:
         serializedVersion: 2
-        m_Bits: 2048
-      knockbackForce: 5
-      delayBetweenProjectiles: 0.4
+        m_Bits: 524288
+      delayBetweenProjectiles: 0
       spawnOffsets: []
       staggeredLaunchAngle: 0
       numberOfProjectiles: 3
-      projectileLifeTime: 3.5
-      projectileSpeed: 8
-      damage: 15
+      destroyTime: 3.5
+      projectileSpeed: 7
+      damage: 10
       directions:
       - {x: 1, y: 0}
-      - {x: 1, y: 0}
-      - {x: 1, y: 0}
-      movementPath: 5
+      - {x: 1, y: 0.2}
+      - {x: 1, y: -0.2}
+      movementPath: 0
     shortRangeData:
       reachDistance: 2
       arcAngle: 90

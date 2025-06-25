@@ -9,6 +9,7 @@ public class SpellObject : ScriptableObject
 {
     [Header("Core Info")]
     public string spellName;
+
     public ElementType element;
     public SpellCategory category;
     public GameObject visualPrefab;

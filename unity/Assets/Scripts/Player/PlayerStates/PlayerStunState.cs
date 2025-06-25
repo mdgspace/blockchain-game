@@ -24,7 +24,8 @@ public class PlayerStunState : PlayerState
     {
         base.Exit();
         player.Enable_DisableInput(true); // Re-enable input
-         // Reset animation to idle after stun
+                                          // Reset animation to idle after stun
+         player.spriteRenderer.color = Color.white; // Reset color if it was changed
     }
     public override void LogicUpdate()
     {

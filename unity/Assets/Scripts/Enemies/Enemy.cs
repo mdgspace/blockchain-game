@@ -16,7 +16,8 @@ public class Enemy : MonoBehaviour
     public float attackSpeed = 1f; // Attacks per second
     public float AttackRange = 1.5f;
     public float AttackCooldown = 1f;
-    public float knockbackForce = 5f; // Force applied when knocked back
+    public float knockbackForce = 7f; // Force applied when knocked back
+    public float attackanimationtime = 1f; // Duration of stun effect
     public float maxExpAward;
     public float minExpAward;
     private float expAward;
@@ -52,11 +53,12 @@ public class Enemy : MonoBehaviour
     public FollowState FollowState { get; private set; }
     public AttackState AttackState { get; private set; }
     public StunState StunState { get; private set; }
-
+    public SpriteRenderer spriteRenderer { get; private set; }
     public bool IsFacingRight = true;
 
     private void Awake()
-    {
+    {   
+        spriteRenderer = GetComponent<SpriteRenderer>();
         if (playerTransform == null)
             playerTransform = GameObject.FindGameObjectWithTag("Player")?.transform;
 
@@ -149,7 +151,7 @@ public class Enemy : MonoBehaviour
         }
         return targetPos;
     }
-    public void TakeDamage(int damage, Vector3 sourcePos, bool applyKnockback = true, bool applyStun = true, string damageType = "Physical")
+    public void TakeDamage(int damage, Vector3 sourcePos, bool applyKnockback = true, bool applyStun = true, bool flash = true, string damageType = "Physical")
     {
         //TODO : Handle different damage types (e.g., Physical, Magical)
         int effectiveDamage = Mathf.Max(0, damage);
@@ -165,13 +167,23 @@ public class Enemy : MonoBehaviour
         Debug.Log(knockbackDirection);
         if (applyKnockback)
             ApplyKnockback(knockbackDirection, applyStun, 5f);
+        if (flash)
+            StartCoroutine(FlashOnHit());
 
         if (currentHealth == 0)
             Die();
-
-        
     }
-    public void ApplyKnockback(Vector2 direction, bool applyStun, float force= 0.1f,  float duration = 0.2f)
+    private IEnumerator FlashOnHit()
+    {
+        
+        if (spriteRenderer == null) yield break; // No sprite renderer to flash
+
+        Color originalColor = spriteRenderer.color;
+        spriteRenderer.color = Color.red*2; // Flash color
+        yield return new WaitForSeconds(0.1f);
+        spriteRenderer.color = originalColor; // Reset to original color
+    }
+    public void ApplyKnockback(Vector2 direction, bool applyStun, float force = 0.1f, float duration = 0.2f)
     {
         StartCoroutine(KnockbackRoutine(direction, force, duration, applyStun));
     }
@@ -206,7 +218,7 @@ public class Enemy : MonoBehaviour
     {
         //Debug.Log("Flipping" + Name);
         IsFacingRight = !IsFacingRight;
-        RB.transform.Rotate(0f, 180f, 0f);
+        transform.localScale = new Vector3(-transform.localScale.x, transform.localScale.y, transform.localScale.z);
     }
     
     public void Die()

@@ -55,7 +55,7 @@ public class AttackState : BaseEnemyState
             owner.Flip();
         }
 
-        if (attackTimer <= attackCooldown && attackTimer>1.25f) // Adjust the timing as needed
+        if (attackTimer <= attackCooldown && attackTimer>owner.attackanimationtime) // Adjust the timing as needed
         {
             // Prepare the animation slightly before the attack executes
             owner.animator.SetBool("isAttacking", false);

@@ -38,7 +38,7 @@ public class ProjectileSpellRuntime : MonoBehaviour
 
         ApplyMovement();
 
-        Destroy(gameObject, data.destroyTime); // fallback lifetime
+        Destroy(gameObject, data.projectileLifeTime); // fallback lifetime
     }
 
     private void ApplyMovement()
@@ -47,6 +47,8 @@ public class ProjectileSpellRuntime : MonoBehaviour
         {
             case ProjectileData.ProjectilePath.Straight:
                 rb.linearVelocity = direction * data.projectileSpeed;
+                float angle = Mathf.Atan2(direction.y, direction.x) * Mathf.Rad2Deg;
+                transform.rotation = Quaternion.Euler(0f, 0f, angle);
                 break;
 
             case ProjectileData.ProjectilePath.Arc:
@@ -142,15 +144,36 @@ public class ProjectileSpellRuntime : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D other)
     {
-        if (other.gameObject.layer == LayerMask.NameToLayer("Enemy"))
+        // Check if the collided object's layer is included in the target mask
+        if (((1 << other.gameObject.layer) & data.targetLayerMask) != 0)
         {
-            Enemy enemy = other.GetComponentInParent<Enemy>();
-            if (enemy != null)
-            {
-                enemy.TakeDamage(data.damage, caster.position);
-            }
+            Debug.Log("Projectile Hit: " + other.gameObject.name);
 
-            Destroy(gameObject);
+            // Enemy check
+            if ((data.targetLayerMask & LayerMask.GetMask("Enemy")) != 0)
+            {
+                Enemy enemy = other.GetComponentInParent<Enemy>();
+                if (enemy != null)
+                {
+                    Debug.Log("Calling TakeDamage on Enemy: " + enemy.name);
+                    enemy.TakeDamage(data.damage, caster.position);
+                }
+
+                Destroy(gameObject);
+            }
+            // Player check
+            else if ((data.targetLayerMask & LayerMask.GetMask("Player")) != 0)
+            {
+                Player player = other.GetComponentInParent<Player>();
+                if (player != null)
+                {
+                    Debug.Log("Calling TakeDamage on Player: " + player.name);
+                    player.TakeDamage(data.damage, caster.position, data.knockbackForce);
+                }
+
+                Destroy(gameObject);
+            }
         }
     }
+
 }

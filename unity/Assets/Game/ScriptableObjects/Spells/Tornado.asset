@@ -27,11 +27,15 @@ MonoBehaviour:
       tickInterval: 1
       duration: 5
     projectileData:
+      targetLayerMask:
+        serializedVersion: 2
+        m_Bits: 2048
+      knockbackForce: 5
       delayBetweenProjectiles: 0
       spawnOffsets: []
       staggeredLaunchAngle: 0
       numberOfProjectiles: 5
-      destroyTime: 3.5
+      projectileLifeTime: 3.5
       projectileSpeed: 8
       damage: 20
       directions:
