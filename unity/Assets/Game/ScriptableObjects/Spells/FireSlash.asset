@@ -28,7 +28,7 @@ MonoBehaviour:
       duration: 5
     projectileData:
       numberOfProjectiles: 1
-      projectileSpeed: 15
+      projectileSpeed: 5
       damage: 25
       directions:
       - {x: 1, y: 0}

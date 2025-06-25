@@ -16,6 +16,7 @@ public class InputManager : MonoBehaviour
     public bool Spell1Pressed { get; private set; }
     public bool Spell2Pressed { get; private set; }
     public bool Spell3Pressed { get; private set; }
+    public bool Spell4Pressed { get; private set; } 
     private PlayerInputActions inputActions;
 
     private void Awake()
@@ -53,6 +54,7 @@ public class InputManager : MonoBehaviour
         Spell1Pressed = inputActions.Player.Spell1.triggered;
         Spell2Pressed = inputActions.Player.Spell2.triggered;
         Spell3Pressed = inputActions.Player.Spell3.triggered;
+        Spell4Pressed = inputActions.Player.Spell4.triggered;
 
         if (InteractPressed)
         {

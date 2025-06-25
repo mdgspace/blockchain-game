@@ -85,6 +85,15 @@
                     "processors": "",
                     "interactions": "",
                     "initialStateCheck": false
+                },
+                {
+                    "name": "Spell4",
+                    "type": "Button",
+                    "id": "f22eb878-9800-4461-92f5-953a5203ee7d",
+                    "expectedControlType": "",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
                 }
             ],
             "bindings": [
@@ -239,6 +248,17 @@
                     "processors": "",
                     "groups": "",
                     "action": "Spell3",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "86f489c4-e4b8-47dd-aa4c-075956a58670",
+                    "path": "<Keyboard>/4",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Spell4",
                     "isComposite": false,
                     "isPartOfComposite": false
                 }
