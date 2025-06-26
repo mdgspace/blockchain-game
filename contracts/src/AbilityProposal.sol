@@ -52,6 +52,7 @@ contract AbilityProposal is AbilityRegistry {
         uint256 currentTime = block.timestamp;
 
         Ability memory newAbility = Ability({
+            id_ability: proposalCount,
             name: _name,
             effect: _effect,
             manaCost: _manaCost,
