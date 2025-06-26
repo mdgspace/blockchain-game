@@ -9,8 +9,8 @@ public class InputManager : MonoBehaviour
     public bool DashPressed { get; private set; }
     public bool AttackPressed { get; private set; }
     public bool IsAttackHeld { get; private set; }
-
     public bool PausePressed { get; private set; }
+    public bool StatsPressed { get; private set; } // Assuming Stats is the same as Pause for now
     public bool InventoryPressed { get; private set; }
     public bool InteractPressed { get; private set; }
     public bool Spell1Pressed { get; private set; }
@@ -49,6 +49,7 @@ public class InputManager : MonoBehaviour
         AttackPressed = inputActions.Player.Attack.triggered;
         IsAttackHeld = inputActions.Player.Attack.ReadValue<float>() > 0.1f;
         PausePressed = inputActions.Player.Pause.triggered;
+        StatsPressed = inputActions.Player.Stats.triggered;
         InventoryPressed = inputActions.Player.Inventory.triggered;
         InteractPressed = inputActions.Player.Interact.triggered;
         Spell1Pressed = inputActions.Player.Spell1.triggered;

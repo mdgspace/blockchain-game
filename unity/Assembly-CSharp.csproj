@@ -164,6 +164,7 @@
     <Compile Include="Assets\Scripts\Player\SpellCaster.cs" />
     <Compile Include="Assets\Scripts\Core\Items\ItemDatabaseObject.cs" />
     <Compile Include="Assets\DialogueEditor\Assets\Scripts\Conversation.cs" />
+    <Compile Include="Assets\Scripts\Core\Managers\GameStates\StatsOpenState.cs" />
     <Compile Include="Assets\Scripts\Player\PlayerStates\PlayerNoAttackState.cs" />
     <Compile Include="Assets\DialogueEditor\Assets\Scripts\Condition.cs" />
     <Compile Include="Assets\DialogueEditor\Assets\Scripts\EditableParameter.cs" />
@@ -774,6 +775,10 @@
       <HintPath>Assets\Packages\Nethereum.BlockchainProcessing.5.0.0\lib\netstandard2.0\Nethereum.BlockchainProcessing.dll</HintPath>
       <Private>False</Private>
     </Reference>
+    <Reference Include="BouncyCastle.Crypto">
+      <HintPath>Assets\Plugins\Web3AuthSDK\Libs\BouncyCastle.Crypto.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
     <Reference Include="Nethereum.RLP">
       <HintPath>Assets\Packages\Nethereum.RLP.5.0.0\lib\netstandard2.0\Nethereum.RLP.dll</HintPath>
       <Private>False</Private>
@@ -836,10 +841,6 @@
     </Reference>
     <Reference Include="Nethereum.RPC">
       <HintPath>Assets\Packages\Nethereum.RPC.5.0.0\lib\netstandard2.0\Nethereum.RPC.dll</HintPath>
-      <Private>False</Private>
-    </Reference>
-    <Reference Include="BouncyCastle.Crypto">
-      <HintPath>Assets\Packages\Portable.BouncyCastle.1.9.0\lib\netstandard2.0\BouncyCastle.Crypto.dll</HintPath>
       <Private>False</Private>
     </Reference>
     <Reference Include="Nethereum.Contracts">

@@ -22,22 +22,22 @@ public class PlayerGUI : MonoBehaviour
         maxHealth = player.heroData.defensiveStats.maxHealth;
         maxEnergy = player.heroData.specialStats.maxEnergy;
         maxMana = player.heroData.specialStats.maxMana;
-        HealthText.text = player.heroData.defensiveStats.maxHealth.ToString();
-        AttackText.text = player.heroData.offensiveStats.damage.ToString();
-        DefenseText.text = player.heroData.defensiveStats.defense.ToString();
-        EnergyText.text = player.heroData.specialStats.maxEnergy.ToString();
-        ManaText.text = player.heroData.specialStats.maxMana.ToString();
+        //HealthText.text = player.heroData.defensiveStats.maxHealth.ToString();
+        //AttackText.text = player.heroData.offensiveStats.damage.ToString();
+        //DefenseText.text = player.heroData.defensiveStats.defense.ToString();
+        //EnergyText.text = player.heroData.specialStats.maxEnergy.ToString();
+        //ManaText.text = player.heroData.specialStats.maxMana.ToString();
     }
     void Update()
     {
         HealthSlider.value = player.currentHealth / maxHealth;
         StaminaSlider.value = player.currentEnergy / maxEnergy;
         ManaSlider.value = player.currentMana / maxMana;
-        HealthText.text = player.heroData.defensiveStats.maxHealth.ToString();
-        AttackText.text = player.heroData.offensiveStats.damage.ToString();
-        DefenseText.text = player.heroData.defensiveStats.defense.ToString();
-        EnergyText.text = player.heroData.specialStats.maxEnergy.ToString();
-        ManaText.text = player.heroData.specialStats.maxMana.ToString();
+        //HealthText.text = player.heroData.defensiveStats.maxHealth.ToString();
+        //AttackText.text = player.heroData.offensiveStats.damage.ToString();
+        //DefenseText.text = player.heroData.defensiveStats.defense.ToString();
+        //EnergyText.text = player.heroData.specialStats.maxEnergy.ToString();
+        //ManaText.text = player.heroData.specialStats.maxMana.ToString();
 
     }
 }

@@ -11,6 +11,7 @@ public class GameManager : MonoBehaviour
     #region GameManagerReferences
     [SerializeField] private GameObject pauseUI;
     private GameObject inventoryUI;
+    [SerializeField] private Canvas statsCanvas;
     #endregion
 
     void Awake()
@@ -26,6 +27,8 @@ public class GameManager : MonoBehaviour
 
         gameStateMachine = new StateMachine<GameManager>();
         inventoryUI = GameObject.FindGameObjectWithTag("InventoryCanvas");
+        statsCanvas = GameObject.FindGameObjectWithTag("StatsCanvas")?.GetComponent<Canvas>();
+
     }
 
     void Start()
@@ -52,7 +55,7 @@ public class GameManager : MonoBehaviour
 
     public void ShowInventoryUI()
     {
-        if(inventoryUI == null)
+        if (inventoryUI == null)
         {
             Debug.LogError("Inventory UI not found! Make sure it has the tag 'InventoryCanvas'.");
             return;
@@ -64,7 +67,7 @@ public class GameManager : MonoBehaviour
 
     public void HideInventoryUI()
     {
-        if(inventoryUI == null)
+        if (inventoryUI == null)
         {
             Debug.LogError("Inventory UI not found! Make sure it has the tag 'InventoryCanvas'.");
             return;
@@ -83,5 +86,27 @@ public class GameManager : MonoBehaviour
     {
         Debug.Log("Hiding pause menu");
         // e.g., PauseMenu.SetActive(false);
+    }
+
+    public void ShowStatsCanvas()
+    {
+        if (statsCanvas == null)
+        {
+            Debug.LogError("Stats Canvas not found! Make sure it has the tag 'StatsCanvas'.");
+            return;
+        }
+        statsCanvas.enabled = true;
+        Debug.Log("Showing stats canvas");
+    }
+
+    public void HideStatsCanvas()
+    {
+        if (statsCanvas == null)
+        {
+            Debug.LogError("Stats Canvas not found! Make sure it has the tag 'StatsCanvas'.");
+            return;
+        }
+        statsCanvas.enabled = false;
+        Debug.Log("Hiding stats canvas");
     }
 }

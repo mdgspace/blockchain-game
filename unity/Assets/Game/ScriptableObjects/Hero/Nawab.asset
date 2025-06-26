@@ -33,3 +33,11 @@ MonoBehaviour:
     energyRegeneration: 5
     maxMana: 100
     manaRegeneration: 5
+  statPointsAssigned:
+    constitution: 1
+    strength: 1
+    dexterity: 2
+    intelligence: 2
+    stamina: 4
+    agility: 1
+    remainingPoints: 0

@@ -18,12 +18,12 @@ public class ProgressManager : MonoBehaviour
     public int agilityStats { get; private set; } = 1;
 
     // Delta stats
-    private int deltaConstitution = 0;
-    private int deltaStrength = 0;
-    private int deltaDexterity = 0;
-    private int deltaIntelligence = 0;
-    private int deltaStamina = 0;
-    private int deltaAgility = 0;
+    public int deltaConstitution { get; private set; } = 0;
+    public int deltaStrength { get; private set; } = 0;
+    public int deltaDexterity { get; private set; } = 0;
+    public int deltaIntelligence { get; private set; } = 0;
+    public int deltaStamina { get; private set; } = 0;
+    public int deltaAgility { get; private set; } = 0;
 
     private void Awake()
     {
@@ -36,6 +36,34 @@ public class ProgressManager : MonoBehaviour
         {
             Destroy(gameObject);
         }
+    }
+
+    public void Start()
+    {
+        strengthStats = heroData.statPointsAssigned.strength;
+        constituionStats = heroData.statPointsAssigned.constitution;
+        dexterityStats = heroData.statPointsAssigned.dexterity;
+        intelligenceStats = heroData.statPointsAssigned.intelligence;
+        staminaStats = heroData.statPointsAssigned.stamina;
+        agilityStats = heroData.statPointsAssigned.agility;
+        statPointsAvailable = heroData.statPointsAssigned.remainingPoints;
+
+        //Debug.Log("statsPointsAvailable: " + statPointsAvailable);
+        //Debug.Log("statsPointsTotal: " + statPointsTotal);
+        //Debug.Log("PlayerExperience: " + PlayerExperience);
+        //Debug.Log("Hero Level: " + heroData.level);
+        //Debug.Log("Hero Constitution: " + constituionStats);
+        //Debug.Log("Hero Strength: " + strengthStats);
+        //Debug.Log("Hero Dexterity: " + dexterityStats);
+        //Debug.Log("Hero Intelligence: " + intelligenceStats);
+        //Debug.Log("Hero Stamina: " + staminaStats);
+        //Debug.Log("Hero Agility: " + agilityStats);
+        //Debug.Log("Delta Constitution: " + deltaConstitution);
+        //Debug.Log("Delta Strength: " + deltaStrength);
+        //Debug.Log("Delta Dexterity: " + deltaDexterity);
+        //Debug.Log("Delta Intelligence: " + deltaIntelligence);
+        //Debug.Log("Delta Stamina: " + deltaStamina);
+        //Debug.Log("Delta Agility: " + deltaAgility);
     }
 
     public void AddExperience(float amount)
@@ -64,6 +92,7 @@ public class ProgressManager : MonoBehaviour
         if (statPointsAvailable > 0)
         {
             statPointsAvailable--;
+            Debug.Log("Spent a stat point. Remaining: " + statPointsAvailable);
             return true;
         }
         Debug.LogWarning("No stat points available.");
@@ -77,14 +106,10 @@ public class ProgressManager : MonoBehaviour
 
     public void IncreaseConstitution()
     {
-        if (TrySpendStatPoint() && constituionStats + deltaConstitution + 1 >= 1)
+        if (TrySpendStatPoint())
         {
             deltaConstitution++;
             Debug.Log("Delta Constitution increased: " + deltaConstitution);
-        }
-        else
-        {
-            RefundStatPoint();
         }
     }
 
@@ -104,14 +129,10 @@ public class ProgressManager : MonoBehaviour
 
     public void IncreaseStrength()
     {
-        if (TrySpendStatPoint() && strengthStats + deltaStrength + 1 >= 1)
+        if (TrySpendStatPoint())
         {
             deltaStrength++;
             Debug.Log("Delta Strength increased: " + deltaStrength);
-        }
-        else
-        {
-            RefundStatPoint();
         }
     }
 
@@ -131,14 +152,10 @@ public class ProgressManager : MonoBehaviour
 
     public void IncreaseDexterity()
     {
-        if (TrySpendStatPoint() && dexterityStats + deltaDexterity + 1 >= 1)
+        if (TrySpendStatPoint())
         {
             deltaDexterity++;
             Debug.Log("Delta Dexterity increased: " + deltaDexterity);
-        }
-        else
-        {
-            RefundStatPoint();
         }
     }
 
@@ -158,14 +175,10 @@ public class ProgressManager : MonoBehaviour
 
     public void IncreaseIntelligence()
     {
-        if (TrySpendStatPoint() && intelligenceStats + deltaIntelligence + 1 >= 1)
+        if (TrySpendStatPoint())
         {
             deltaIntelligence++;
             Debug.Log("Delta Intelligence increased: " + deltaIntelligence);
-        }
-        else
-        {
-            RefundStatPoint();
         }
     }
 
@@ -185,14 +198,10 @@ public class ProgressManager : MonoBehaviour
 
     public void IncreaseStamina()
     {
-        if (TrySpendStatPoint() && staminaStats + deltaStamina + 1 >= 1)
+        if (TrySpendStatPoint())
         {
             deltaStamina++;
             Debug.Log("Delta Stamina increased: " + deltaStamina);
-        }
-        else
-        {
-            RefundStatPoint();
         }
     }
 
@@ -212,14 +221,10 @@ public class ProgressManager : MonoBehaviour
 
     public void IncreaseAgility()
     {
-        if (TrySpendStatPoint() && agilityStats + deltaAgility + 1 >= 1)
+        if (TrySpendStatPoint())
         {
             deltaAgility++;
             Debug.Log("Delta Agility increased: " + deltaAgility);
-        }
-        else
-        {
-            RefundStatPoint();
         }
     }
 
@@ -247,7 +252,19 @@ public class ProgressManager : MonoBehaviour
         staminaStats += deltaStamina;
         agilityStats += deltaAgility;
 
+
+
         // Apply effects to heroData (examples)
+
+        heroData.statPointsAssigned.strength = strengthStats;
+        heroData.statPointsAssigned.constitution = constituionStats;
+        heroData.statPointsAssigned.dexterity = dexterityStats;
+        heroData.statPointsAssigned.intelligence = intelligenceStats;
+        heroData.statPointsAssigned.stamina = staminaStats;
+        heroData.statPointsAssigned.agility = agilityStats;
+        heroData.statPointsAssigned.remainingPoints = statPointsAvailable;
+
+        // Logic to change the actual player stats of hero data
         heroData.offensiveStats.damage += deltaStrength;
         heroData.defensiveStats.maxHealth += deltaConstitution * 10;
 

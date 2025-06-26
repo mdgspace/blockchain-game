@@ -27,5 +27,9 @@ public class InGameState : State<GameManager>
         {
             stateMachine.ChangeState(new PausedState(owner, stateMachine));
         }
+        else if (InputManager.Instance.StatsPressed)
+        {
+            stateMachine.ChangeState(new StatsOpenState(owner, stateMachine));
+        }
     }
 }

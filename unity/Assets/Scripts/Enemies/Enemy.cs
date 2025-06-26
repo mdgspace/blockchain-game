@@ -158,13 +158,13 @@ public class Enemy : MonoBehaviour
 
         currentHealth = Mathf.Max(0, currentHealth - effectiveDamage);
         animator.SetBool("isHit", true);
-        Debug.Log(sourcePos);
-        Debug.Log(transform.position);
-        Debug.Log(transform.position - sourcePos);
+        //Debug.Log(sourcePos);
+        //Debug.Log(transform.position);
+        //Debug.Log(transform.position - sourcePos);
         Vector2 knockbackDirection = ((Vector2)transform.position - (Vector2)sourcePos).normalized;
-        Debug.Log(knockbackDirection);
+        //Debug.Log(knockbackDirection);
         //knockbackDirection = new Vector2(knockbackDirection.x, -knockbackDirection.y);
-        Debug.Log(knockbackDirection);
+        //Debug.Log(knockbackDirection);
         if (applyKnockback)
             ApplyKnockback(knockbackDirection, applyStun, 5f);
         if (flash)
