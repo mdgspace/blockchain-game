@@ -133,12 +133,13 @@ public class Web3AuthManager : MonoBehaviour
             var chainConfig = new ChainConfig()
             {
                 chainNamespace = ChainNamespace.EIP155,
-                chainId = "0xa869",
-                rpcTarget = "https://api.avax-test.network/ext/bc/C/rpc",
+                chainId = "0xa869", // Fuji Testnet Chain ID
+                rpcTarget = "https://api.web3auth.io/infura-service/v1/0xa869/BCFrdDlSvOrcYUU4iGDkF_nrj-dxwNjgA_C-xgvyf7QWHt45UKBfJ7WOcuD04ROjVwSYUxl224CUffKBB9e7BhE", // Correct Fuji RPC
                 displayName = "Avalanche Fuji",
                 ticker = "AVAX",
                 tickerName = "Avalanche"
             };
+
 
             Debug.Log("Launching wallet services...");
             web3Auth.launchWalletServices(chainConfig);
