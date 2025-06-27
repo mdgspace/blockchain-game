@@ -156,4 +156,31 @@ contract HeroTest is Test {
         hero.unbanHero(0);
         assertFalse(hero.getHeroData(0).isBanned);
     }
+    function testGetHeroData() public {
+        uint32[] memory resistances = new uint32[](2);
+        resistances[0] = 10;
+        resistances[1] = 20;
+
+        // Mint a hero to test
+        hero.mintHero(
+            "Alice",
+            player,
+            "0xABC",
+            "Elf",
+            resistances,
+            "ipfs://QmTest/0.json"
+        );
+
+        // Fetch the hero data
+        Hero.HeroData memory data = hero.getHeroData(0);
+
+        // Assertions
+        assertEq(data.playerName, "Alice");
+        assertEq(data.playerID, "0xABC");
+        assertEq(data.level, 1);
+        assertEq(data.raceName, "Elf");
+        assertEq(data.stats.defensiveStats.resistances[0], 10);
+        assertEq(data.stats.defensiveStats.resistances[1], 20);
+        assertEq(data.isBanned, false);
+    }
 }

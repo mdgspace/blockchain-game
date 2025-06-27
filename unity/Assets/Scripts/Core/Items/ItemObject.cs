@@ -1,14 +1,24 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 
-public enum ItemType 
+public enum ItemType
 {
     Weapon,
     Armour,
     Consumable,
     Accessory,
     Default
+}
+
+public enum Rarity
+{
+    Common,
+    Uncommon,
+    Rare,
+    Epic,
+    Legendary
 }
 
 public enum ArmourSlot
@@ -22,18 +32,30 @@ public enum ArmourSlot
 [CreateAssetMenu(fileName = "New Item", menuName = "Inventory System/Items/Item")]
 public class ItemObject : ScriptableObject
 {
+    [Header("Basic Info")]
+    public string itemName;
     public Sprite uiDisplay;
+    public Rarity rarity;
     public bool stackable;
     public ItemType type;
-    [TextArea(5, 10)]
+    [TextArea(3, 10)]
     public string description;
-    public Item data = new Item();
 
-    // Only one of these will be used based on `type`
+    [Header("Type-specific Data")]
     public WeaponData weaponData;
     public ArmourData armourData;
     public ConsumableData consumableData;
     public AccessoryData accessoryData;
+     public Item data = new Item();
+
+    private static int nextId = 0;
+    public int id = -1;
+
+    private void OnEnable()
+    {
+        if (id == -1)
+            id = nextId++;
+    }
 
     public Item CreateItem()
     {
@@ -45,10 +67,11 @@ public class ItemObject : ScriptableObject
 public class Item
 {
     public string Name;
-    public int Id = -1;
-
-    // Type-specific data
+    public int Id;
     public ItemType type;
+    public Rarity rarity;
+    public string description;
+
     public WeaponData weaponData;
     public ArmourData armourData;
     public ConsumableData consumableData;
@@ -59,57 +82,33 @@ public class Item
 
     public Item(ItemObject item)
     {
-        Name = item.name;
-        Id = item.data.Id; // or item.data.Id if you're managing Ids separately
+        Name = item.itemName;
+        Id = item.id;
         type = item.type;
+        rarity = item.rarity;
+        description = item.description;
 
         switch (type)
         {
             case ItemType.Weapon:
-                weaponData = item.weaponData;
+                weaponData = item.weaponData.Clone();
                 break;
             case ItemType.Armour:
-                armourData = item.armourData;
+                armourData = item.armourData.Clone();
                 break;
             case ItemType.Consumable:
-                consumableData = item.consumableData;
+                consumableData = item.consumableData.Clone();
                 break;
             case ItemType.Accessory:
-                accessoryData = item.accessoryData;
+                accessoryData = item.accessoryData.Clone();
                 break;
             case ItemType.Default:
                 defaultData = new DefaultData
                 {
-                    name = item.name,
-                    notes = item.description // Assuming description is used for notes
+                    name = item.itemName,
+                    notes = item.description
                 };
                 break;
         }
     }
 }
-
-
-// [System.Serializable]
-// public class ItemBuff : IModifier
-// {
-//     public Attributes attribute;
-//     public int value;
-//     public int min;
-//     public int max;
-//     public ItemBuff(int _min, int _max)
-//     {
-//         min = _min;
-//         max = _max;
-//         GenerateValue();
-//     }
-
-//     public void AddValue(ref int baseValue)
-//     {
-//         baseValue += value;
-//     }
-
-//     public void GenerateValue()
-//     {
-//         value = UnityEngine.Random.Range(min, max);
-//     }
-// }

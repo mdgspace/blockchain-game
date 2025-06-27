@@ -147,7 +147,8 @@ TextureImporter:
     secondaryTextures: []
     spriteCustomMetadata:
       entries: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      green-single-leaf-in-pixel-art-s_0: 6195929559113745093
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
