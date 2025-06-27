@@ -4,7 +4,7 @@ public class ProgressManager : MonoBehaviour
 {
     [SerializeField] private HeroData heroData;
     public static ProgressManager Instance { get; private set; }
-    public float PlayerExperience { get; private set; } = 0;
+    public int PlayerExperience { get; private set; } = 0;
 
     public int statPointsAvailable { get; private set; } = 5;
     public int statPointsTotal { get; private set; } = 5;
@@ -47,6 +47,7 @@ public class ProgressManager : MonoBehaviour
         staminaStats = heroData.statPointsAssigned.stamina;
         agilityStats = heroData.statPointsAssigned.agility;
         statPointsAvailable = heroData.statPointsAssigned.remainingPoints;
+        PlayerExperience = heroData.statPointsAssigned.experience;
 
         //Debug.Log("statsPointsAvailable: " + statPointsAvailable);
         //Debug.Log("statsPointsTotal: " + statPointsTotal);
@@ -66,8 +67,9 @@ public class ProgressManager : MonoBehaviour
         //Debug.Log("Delta Agility: " + deltaAgility);
     }
 
-    public void AddExperience(float amount)
+    public void AddExperience(int amount)
     {
+        Debug.Log($"Adding {amount} experience.");
         PlayerExperience += amount;
         CheckLevelUp();
     }
@@ -263,6 +265,7 @@ public class ProgressManager : MonoBehaviour
         heroData.statPointsAssigned.stamina = staminaStats;
         heroData.statPointsAssigned.agility = agilityStats;
         heroData.statPointsAssigned.remainingPoints = statPointsAvailable;
+        heroData.statPointsAssigned.experience = PlayerExperience;
 
         // Logic to change the actual player stats of hero data
         heroData.offensiveStats.damage += deltaStrength;

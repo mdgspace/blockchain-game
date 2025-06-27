@@ -9,6 +9,7 @@ public class StatsFunctions : MonoBehaviour
     [SerializeField] private TextMeshProUGUI intelligenceText;
     [SerializeField] private TextMeshProUGUI staminaText;
     [SerializeField] private TextMeshProUGUI agilityText;
+    [SerializeField] private TextMeshProUGUI levelText;
 
     [SerializeField] private HeroData heroData;
 
@@ -22,6 +23,16 @@ public class StatsFunctions : MonoBehaviour
         intelligenceText.text = heroData.statPointsAssigned.intelligence.ToString();
         staminaText.text = heroData.statPointsAssigned.stamina.ToString();
         agilityText.text = heroData.statPointsAssigned.agility.ToString();
+        levelText.text = "Level " + heroData.level.ToString();
+    }
+
+    private void Update()
+    {
+        // Update the level text if the hero's level changes
+        if (heroData.level != int.Parse(levelText.text.Split(' ')[1]))
+        {
+            levelText.text = "Level " + heroData.level.ToString();
+        }
     }
 
     public void increaseStrength()

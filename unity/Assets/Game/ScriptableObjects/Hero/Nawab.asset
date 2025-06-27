@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   playerName: Nawab
   playerID: 12345
-  level: 1
+  level: 2
   isBanned: 0
   raceName: Elf
   equippedItems: []
@@ -36,8 +36,9 @@ MonoBehaviour:
   statPointsAssigned:
     constitution: 1
     strength: 1
-    dexterity: 2
-    intelligence: 2
-    stamina: 4
+    dexterity: 1
+    intelligence: 1
+    stamina: 1
     agility: 1
     remainingPoints: 0
+    experience: 0

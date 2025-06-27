@@ -18,9 +18,9 @@ public class Enemy : MonoBehaviour
     public float AttackCooldown = 1f;
     public float knockbackForce = 7f; // Force applied when knocked back
     public float attackanimationtime = 1f; // Duration of stun effect
-    public float maxExpAward;
-    public float minExpAward;
-    private float expAward;
+    public int maxExpAward;
+    public int minExpAward;
+    private int expAward;
     public String Name = "Enemy";
 
     public NavMeshAgent agent;
@@ -82,6 +82,7 @@ public class Enemy : MonoBehaviour
         StunState = new StunState(this, StateMachine);
         StateMachine.Initialize(IdleState);
 
+        expAward = (int) UnityEngine.Random.Range(minExpAward, maxExpAward);
     }
 
     private void Update()
@@ -115,13 +116,15 @@ public class Enemy : MonoBehaviour
             layerMask: playerLayer | obstacleLayer // Combine masks
         );
 
+        Debug.Log("Performed raycast for player detection");
+
         if (hit)
         {
             // If the hit is the player, return true; if it's an obstacle, return false.
             if (((1 << hit.collider.gameObject.layer) & playerLayer) != 0)
                 return true;
         }
-
+        Debug.Log("Player not detected within vision range or blocked by an obstacle.");
         return false;
     }
 
@@ -223,8 +226,6 @@ public class Enemy : MonoBehaviour
     
     public void Die()
     {
-
-        expAward = UnityEngine.Random.Range(minExpAward, maxExpAward);
         ProgressManager.Instance.AddExperience(expAward);
 
         animator.SetBool("isDead", true);

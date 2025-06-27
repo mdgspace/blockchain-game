@@ -62,6 +62,7 @@ public class StatPointsAssigned
     public int stamina = 1;
     public int agility = 1;
     public int remainingPoints = 0;
+    public int experience = 0;
     public void Reset()
     {
         constitution = 1;
@@ -70,5 +71,7 @@ public class StatPointsAssigned
         intelligence = 1;
         stamina = 1;
         agility = 1;
+        remainingPoints = 0;
+        experience = 0;
     }
 }
