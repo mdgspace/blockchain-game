@@ -12,7 +12,7 @@
 //     }
 //     //can add things like berries or items which can be farmed and  apply defi concepts and supply and demand concepts on it\
     
-//     //A struct for the farmable items in which we can display the last selling price and many other things required in the market.
+//     
 //     mapping(uint256 => UniqueItem) public uniqueItems; // Mapping of itemId to UniqueItem
 //     struct CommonItem {
 //         uint256 itemId;
