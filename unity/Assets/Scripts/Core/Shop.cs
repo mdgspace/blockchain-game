@@ -6,14 +6,16 @@ public class ShopManager : MonoBehaviour
 {
     [SerializeField] Canvas canvas;
     [SerializeField] Canvas dialogueCanvas;
+    [SerializeField] Transform spawnPoint;
+
 
 
     [Header("Shop Items")]
-    public ItemObject[] shopItems;
+    public GameObject shopItems;
 
     [Header("Stock Settings")]
     public int maxStock = 10;
-    private int[] currentStock;
+    private int currentStock;
 
     [Header("UI References")]
     public Transform itemContainer; // Parent object for shop item UI elements
@@ -27,46 +29,37 @@ public class ShopManager : MonoBehaviour
     private void InitializeShop()
     {
         // Initialize stock array
-        currentStock = new int[shopItems.Length];
-
-        // Set all items to max stock initially
-        for (int i = 0; i < currentStock.Length; i++)
-        {
-            currentStock[i] = shopItems[i].maxItemStock;
-        }
-
+        currentStock = 5;
         // Create UI elements for each shop item
         CreateShopUI();
     }
 
     private void CreateShopUI()
     {
-        for (int i = 0; i < shopItems.Length; i++)
+        for (int i = 0; i < 1; i++)
         {
             GameObject itemUI = Instantiate(shopItemPrefab, itemContainer);
             ShopItemUI shopItemUI = itemUI.GetComponent<ShopItemUI>();
 
             // Setup the item UI with data
-            shopItemUI.SetupItem(shopItems[i], currentStock[i], i, this);
+            shopItemUI.SetupItem(shopItems.GetComponent<GroundItem>().item, currentStock, i, this);
         }
     }
 
     public void BuyItem(int itemIndex)
     {
         // Check if item is available
-        if (itemIndex < 0 || itemIndex >= shopItems.Length)
-        {
-            Debug.LogError("Invalid item index!");
-            return;
-        }
+        // if (itemIndex < 0 || itemIndex >= shopItems)
+        // {
+        //     Debug.LogError("Invalid item index!");
+        //     return;
+        // }
 
-        if (currentStock[itemIndex] <= 0)
+        if (currentStock <= 0)
         {
             Debug.Log("Item out of stock!");
             return;
         }
-
-        ItemObject item = shopItems[itemIndex];
 
         // TODO: Check if player has enough currency
         // if (PlayerCurrency.Instance.GetCurrency() < item.cost)
@@ -81,14 +74,16 @@ public class ShopManager : MonoBehaviour
 
         // add to player inventory here
         // PlayerInventory.Instance.AddItem(item);
-
+        Vector3 spawnPosition = spawnPoint.position + new Vector3(2, 2, 0);
+        Debug.Log($"Spawning item at position: {spawnPosition}");
+        Instantiate(shopItems,spawnPosition, Quaternion.identity);
         // Update stock
-        currentStock[itemIndex]--;
+        currentStock--;
 
         // Update UI
         UpdateShopUI();
 
-        Debug.Log($"Bought {item.name} for currency!");
+        //Debug.Log($"Bought {item.name} for currency!");
     }
 
     private void UpdateShopUI()
@@ -97,17 +92,17 @@ public class ShopManager : MonoBehaviour
 
         for (int i = 0; i < itemUIs.Length; i++)
         {
-            if (i < currentStock.Length)
+            if (i < currentStock)
             {
-                itemUIs[i].UpdateStock(currentStock[i]);
+                itemUIs[i].UpdateStock(currentStock);
             }
         }
     }
 
     public int GetCurrentStock(int itemIndex)
     {
-        if (itemIndex >= 0 && itemIndex < currentStock.Length)
-            return currentStock[itemIndex];
+        if (itemIndex >= 0)
+            return currentStock;
         return 0;
     }
 
@@ -127,15 +122,18 @@ public class ShopManager : MonoBehaviour
     {
 
         // Reset each item's current stock to its max stock
-        for (int i = 0; i < shopItems.Length && i < currentStock.Length; i++)
-        {
-            // Get the max stock from the individual ShopItemUI component
-            int maxStockForItem = shopItems[i].maxItemStock; // You'll need this method in ShopItemUI
+        // for (int i = 0; i < shopItems.Length && i < currentStock.Length; i++)
+        // {
+        //     // Get the max stock from the individual ShopItemUI component
+        //     int maxStockForItem = shopItems[i].maxItemStock; // You'll need this method in ShopItemUI
 
-            // Set current stock to max stock
-            currentStock[i] = maxStockForItem;
-        }
+        //     // Set current stock to max stock
+        //     currentStock[i] = maxStockForItem;
+        // }
+        int maxStockForItem = 5; // You'll need this method in ShopItemUI
 
+        // Set current stock to max stock
+        currentStock = maxStockForItem;
         // Update the UI to reflect the new stock values
         UpdateShopUI();
 
