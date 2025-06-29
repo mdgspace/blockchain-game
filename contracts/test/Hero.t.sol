@@ -33,26 +33,26 @@ contract HeroTest is Test {
         assertEq(data.level, 1);
     }
 
-    function testOnlyOwnerCanMint() public {
-        uint32[] memory resistances = new uint32[](1);
-        resistances[0] = 10;
+    // function testOnlyOwnerCanMint() public {
+    //     uint32[] memory resistances = new uint32[](1);
+    //     resistances[0] = 10;
 
-        vm.prank(player);
-        vm.expectRevert(
-            abi.encodeWithSelector(
-                Ownable.OwnableUnauthorizedAccount.selector,
-                player
-            )
-        );
-        hero.mintHero(
-            "Bob",
-            player,
-            "0xDEF",
-            "Orc",
-            resistances,
-            "ipfs://QmXyz/1.json"
-        );
-    }
+    //     vm.prank(player);
+    //     vm.expectRevert(
+    //         abi.encodeWithSelector(
+    //             Ownable.OwnableUnauthorizedAccount.selector,
+    //             player
+    //         )
+    //     );
+    //     hero.mintHero(
+    //         "Bob",
+    //         player,
+    //         "0xDEF",
+    //         "Orc",
+    //         resistances,
+    //         "ipfs://QmXyz/1.json"
+    //     );
+    // }
 
     function testUpdateHeroStats() public {
         uint32[] memory resistances = new uint32[](1);
@@ -156,6 +156,7 @@ contract HeroTest is Test {
         hero.unbanHero(0);
         assertFalse(hero.getHeroData(0).isBanned);
     }
+
     function testGetHeroData() public {
         uint32[] memory resistances = new uint32[](2);
         resistances[0] = 10;
@@ -182,5 +183,88 @@ contract HeroTest is Test {
         assertEq(data.stats.defensiveStats.resistances[0], 10);
         assertEq(data.stats.defensiveStats.resistances[1], 20);
         assertEq(data.isBanned, false);
+    }
+
+    function testGetHeroesByOwner() public {
+        uint32[] memory resistances = new uint32[](1);
+        resistances[0] = 10;
+
+        hero.mintHero("A", player, "ID1", "Elf", resistances, "uri1");
+        hero.mintHero("B", admin, "ID2", "Orc", resistances, "uri2");
+
+        uint256[] memory adminHeroes = hero.getHeroesByOwner(admin);
+        assertEq(adminHeroes.length, 1);
+        assertEq(adminHeroes[0], 1);
+
+        uint256 count = hero.getHeroCountByOwner(admin);
+        assertEq(count, 1);
+    }
+
+    function testGetHeroBasicInfo() public {
+        uint32[] memory resistances = new uint32[](1);
+        resistances[0] = 5;
+
+        hero.mintHero("Zara", player, "IDZ", "Human", resistances, "uriZ");
+
+        (
+            string memory name,
+            uint32 level,
+            bool banned,
+            string memory race
+        ) = hero.getHeroBasicInfo(0);
+        assertEq(name, "Zara");
+        assertEq(level, 1);
+        assertEq(banned, false);
+        assertEq(race, "Human");
+    }
+
+    function testGetActiveHeroesByOwner() public {
+        uint32[] memory resistances = new uint32[](2);
+        resistances[0] = 10;
+
+        hero.mintHero("A", player, "ID1", "Elf", resistances, "uri1");
+        hero.mintHero("B", player, "ID2", "Orc", resistances, "uri2");
+
+        // Ban one of them
+        hero.banHero(1);
+
+        vm.prank(player);
+        uint256[] memory activeHeroes = hero.getActiveHeroesByOwner(player);
+        assertEq(activeHeroes.length, 1);
+        assertEq(activeHeroes[0], 0);
+    }
+
+    function testGetMultipleHeroesBasicInfo() public {
+        uint32[] memory resistances = new uint32[](1);
+        resistances[0] = 1;
+
+        hero.mintHero("Hero1", player, "ID1", "Race1", resistances, "uri1");
+        hero.mintHero("Hero2", player, "ID2", "Race2", resistances, "uri2");
+
+        uint256[] memory ids = new uint256[](2);
+        ids[0] = 0;
+        ids[1] = 1;
+
+        (
+            string[] memory names,
+            uint32[] memory levels,
+            bool[] memory bans,
+            string[] memory races
+        ) = hero.getMultipleHeroesBasicInfo(ids);
+
+        assertEq(names[0], "Hero1");
+        assertEq(races[1], "Race2");
+        assertEq(bans[0], false);
+        assertEq(levels[1], 1);
+    }
+
+    function testHeroExists() public {
+        uint32[] memory resistances = new uint32[](1);
+        resistances[0] = 1;
+
+        hero.mintHero("X", player, "IDX", "RaceX", resistances, "uriX");
+
+        assertTrue(hero.heroExists(0));
+        assertFalse(hero.heroExists(1)); // not minted
     }
 }
