@@ -18,6 +18,12 @@ EditorBuildSettings:
     path: Assets/Game/Scenes/Scenes/tutorial.unity
     guid: 622d02912fd096b4c95b97c2a55d8fc3
   - enabled: 1
+    path: Assets/Game/Scenes/Scenes/tutorial Vinayak.unity
+    guid: 54ddd7340f81c17438beab452881393e
+  - enabled: 1
+    path: Assets/Game/Scenes/Scenes/CharacterSceneVinayak.unity
+    guid: afbcb24dfa56b2d40b44867011498e24
+  - enabled: 1
     path: Assets/Game/Scenes/ryuga-testing/tutorial-ryuga.unity
     guid: a3081933bd0455741953bdb4eb68bb86
   m_configObjects:

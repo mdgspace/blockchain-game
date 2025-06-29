@@ -149,8 +149,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   loginSceneName: LoginScene
-  characterSceneName: CharacterScene
-  gameSceneName: tutorial-ryuga
+  characterSceneName: CharacterSceneVinayak
+  gameSceneName: tutorial Vinayak
 --- !u!4 &71962863
 Transform:
   m_ObjectHideFlags: 0
