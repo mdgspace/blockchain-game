@@ -88,7 +88,7 @@ public class Player : MonoBehaviour
     private void Update()
     {
 
-        Debug.Log(AttackStateMachine.CurrentState.ToString());
+        //Debug.Log(AttackStateMachine.CurrentState.ToString());
 
         stateMachine.HandleInput();
         stateMachine.LogicUpdate();

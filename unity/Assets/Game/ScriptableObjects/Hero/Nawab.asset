@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   playerName: Nawab
   playerID: 12345
-  level: 2
+  level: 1
   isBanned: 0
   raceName: Elf
   equippedItems: []

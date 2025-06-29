@@ -1,5 +1,6 @@
 using System;
 using System.Collections;
+using System.Threading.Tasks;
 using Unity.IO.LowLevel.Unsafe;
 using Unity.VisualScripting;
 using UnityEngine;
@@ -18,10 +19,17 @@ public class Enemy : MonoBehaviour
     public float AttackCooldown = 1f;
     public float knockbackForce = 7f; // Force applied when knocked back
     public float attackanimationtime = 1f; // Duration of stun effect
-    public int maxExpAward;
-    public int minExpAward;
+    public UInt32 maxExpAward;
+    public UInt32 minExpAward;
     private int expAward;
     public String Name = "Enemy";
+
+    private bool hasDied = false;
+    private bool fetchedExp = false;
+
+    private float timer;
+
+    private TaskCompletionSource<UInt32> expTCS;
 
     public NavMeshAgent agent;
 
@@ -54,6 +62,9 @@ public class Enemy : MonoBehaviour
     public AttackState AttackState { get; private set; }
     public StunState StunState { get; private set; }
     public SpriteRenderer spriteRenderer { get; private set; }
+
+    private SimpleRandomContract simpleRandomContract;
+
     public bool IsFacingRight = true;
 
     private void Awake()
@@ -65,6 +76,17 @@ public class Enemy : MonoBehaviour
         RB = transform.GetComponent<Rigidbody2D>();
     }
 
+    void OnEnable()
+    {
+        if (VRFResultRouter.Instance != null)
+            VRFResultRouter.Instance.OnVRFResult += OnVRFResult;
+    }
+
+    void OnDisable()
+    {
+        if (VRFResultRouter.Instance != null)
+            VRFResultRouter.Instance.OnVRFResult -= OnVRFResult;
+    }
     void Start()
     {
         RB.freezeRotation = true;
@@ -74,6 +96,7 @@ public class Enemy : MonoBehaviour
         agent.updateUpAxis = false; // Disable automatic up-axis adjustment if not needed
 
         StateMachine = new StateMachine<Enemy>();
+        simpleRandomContract = new SimpleRandomContract();
 
         IdleState = new IdleState(this, StateMachine);
         FreeRoamingState = new FreeRoamingState(this, StateMachine);
@@ -83,6 +106,7 @@ public class Enemy : MonoBehaviour
         StateMachine.Initialize(IdleState);
 
         expAward = (int) UnityEngine.Random.Range(minExpAward, maxExpAward);
+        StartCoroutine(enumerator());
     }
 
     private void Update()
@@ -173,7 +197,7 @@ public class Enemy : MonoBehaviour
         if (flash)
             StartCoroutine(FlashOnHit());
 
-        if (currentHealth == 0)
+        if (currentHealth == 0 && !hasDied)
             Die();
     }
     private IEnumerator FlashOnHit()
@@ -226,8 +250,8 @@ public class Enemy : MonoBehaviour
     
     public void Die()
     {
-        ProgressManager.Instance.AddExperience(expAward);
-
+        hasDied = true;
+        
         animator.SetBool("isDead", true);
         Debug.Log(Name + " has died.");
         //TODO: Implement death logic, like playing a death animation, dropping loot, etc.
@@ -247,5 +271,44 @@ public class Enemy : MonoBehaviour
     public void hitAnimComplete()
     {
         animator.SetBool("isHit", false);
+    }
+
+    void OnVRFResult(uint exp)
+    {
+        Debug.Log($"?? Awarding {exp} EXP to player");
+
+        expAward = (int)exp;
+    }
+
+    void HandleVRFResult(uint result)
+    {
+        string myAddress = Web3AuthManager.Instance.GetWalletAddress();
+
+        // Optional: if using `requestId` later, you can match here
+        // For now, just resolve the Task with the exp
+        if (expTCS != null && !expTCS.Task.IsCompleted)
+        {
+            expTCS.SetResult(result);
+        }
+    }
+
+    private IEnumerator enumerator()
+    {
+        yield return new WaitForSeconds(3f);
+
+        fetchExpFromContract();
+    }
+
+    private async void fetchExpFromContract()
+    {
+        expTCS = new TaskCompletionSource<UInt32>();
+        VRFResultRouter.Instance.OnVRFResult += HandleVRFResult;
+        Debug.Log("Requesting random experience award...");
+        string txnHash = await simpleRandomContract.RequestRandom(minExpAward, maxExpAward);
+        Debug.Log($"VRF request sent with transaction hash: {txnHash}");
+        Debug.Log("Waiting for VRF result...");
+        UInt32 exp = await expTCS.Task;
+        Debug.Log($"Received EXP: {exp} from VRF request {txnHash}");
+        ProgressManager.Instance.AddExperience((int)exp);
     }
 }

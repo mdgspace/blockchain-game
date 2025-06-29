@@ -90,9 +90,11 @@
     <Compile Include="Assets\Scripts\Enemies\states\FollowState.cs" />
     <Compile Include="Assets\Scripts\Spells\EnemySpells\MagicProjectile.cs" />
     <Compile Include="Assets\Scripts\Enemies\slime\slimeEnemy.cs" />
+    <Compile Include="Assets\Scripts\Core\Managers\SceneTransistionManager.cs" />
     <Compile Include="Assets\Scripts\Player\PlayerStates\PlayerIdleState.cs" />
     <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\Benchmark02.cs" />
     <Compile Include="Assets\Scripts\Player\PlayerStates\PlayerSpellState.cs" />
+    <Compile Include="Assets\Scripts\Core\UI handlers\LoginUI.cs" />
     <Compile Include="Assets\DialogueEditor\Assets\Scripts\Parameter.cs" />
     <Compile Include="Assets\Scripts\Core\spawner.cs" />
     <Compile Include="Assets\Scripts\Spells\ProjectileSpellRuntime.cs" />
@@ -103,6 +105,7 @@
     <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\TMPro_InstructionOverlay.cs" />
     <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\VertexShakeB.cs" />
     <Compile Include="Assets\Scripts\Core\spawnable.cs" />
+    <Compile Include="Assets\Scripts\Blockchain\VRF\Web3AuthIntegration.cs" />
     <Compile Include="Assets\Scripts\Player\PlayerGUI.cs" />
     <Compile Include="Assets\Scripts\Core\Items\GroundItem.cs" />
     <Compile Include="Assets\Scripts\Core\Managers\StatsFunctions.cs" />
@@ -122,10 +125,13 @@
     <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\WarpTextExample.cs" />
     <Compile Include="Assets\CamFollow.cs" />
     <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\ShaderPropAnimator.cs" />
+    <Compile Include="Assets\Scripts\Core\UI handlers\CharacterCreationUI.cs" />
     <Compile Include="Assets\Scripts\Player\PlayerState.cs" />
+    <Compile Include="Assets\Scripts\Core\Managers\Web3AuthManager.cs" />
     <Compile Include="Assets\Scripts\Player\PlayerStates\PlayerAttackState.cs" />
     <Compile Include="Assets\Scripts\Core\ItemSpawner.cs" />
     <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\TMP_TextInfoDebugTool.cs" />
+    <Compile Include="Assets\Scripts\Blockchain\VRF\SimpleRandomContract.cs" />
     <Compile Include="Assets\Scripts\Enemies\EnemyState.cs" />
     <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\VertexShakeA.cs" />
     <Compile Include="Assets\DialogueEditor\Assets\Scripts\UI\ConversationManager.cs" />
@@ -140,7 +146,7 @@
     <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\Benchmark04.cs" />
     <Compile Include="Assets\Scripts\Player\PlayerStates\PlayerStunState.cs" />
     <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\ChatController.cs" />
-    <Compile Include="Assets\Scripts\Core\Web3AuthManager.cs" />
+    <Compile Include="Assets\Scripts\Blockchain\Hero\HeroContractService.cs" />
     <Compile Include="Assets\Scripts\Player\attackHandler.cs" />
     <Compile Include="Assets\DialogueEditor\Assets\Scripts\EditableConnection.cs" />
     <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\TMP_DigitValidator.cs" />
@@ -164,6 +170,7 @@
     <Compile Include="Assets\Scripts\Player\SpellCaster.cs" />
     <Compile Include="Assets\Scripts\Core\Items\ItemDatabaseObject.cs" />
     <Compile Include="Assets\DialogueEditor\Assets\Scripts\Conversation.cs" />
+    <Compile Include="Assets\Scripts\Blockchain\VRF\ContractConfigFunctions.cs" />
     <Compile Include="Assets\Scripts\Core\Managers\GameStates\StatsOpenState.cs" />
     <Compile Include="Assets\Scripts\Player\PlayerStates\PlayerNoAttackState.cs" />
     <Compile Include="Assets\DialogueEditor\Assets\Scripts\Condition.cs" />
@@ -171,6 +178,7 @@
     <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\DropdownSample.cs" />
     <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\VertexColorCycler.cs" />
     <Compile Include="Assets\Scripts\Core\Destroy.cs" />
+    <Compile Include="Assets\Scripts\Blockchain\VRF\ContractConfig.cs" />
     <Compile Include="Assets\Scripts\Player\Player.cs" />
     <Compile Include="Assets\Scripts\Core\State.cs" />
     <Compile Include="Assets\Scripts\Enemies\scorpion\ScorpionEnemy.cs" />
@@ -190,8 +198,11 @@
     <Compile Include="Assets\Scripts\Core\Inventory\DynamicInterface.cs" />
     <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\TextMeshProFloatingText.cs" />
     <Compile Include="Assets\Scripts\Core\Managers\authHandlers.cs" />
+    <Compile Include="Assets\Scripts\Blockchain\VRF\VRFEventListener.cs" />
     <Compile Include="Assets\Scripts\Spells\SpellFactory.cs" />
     <Compile Include="Assets\Scripts\Core\Inventory\IModifiers.cs" />
+    <Compile Include="Assets\Scripts\Blockchain\ContractFunctionDefinition.cs" />
+    <Compile Include="Assets\Scripts\Blockchain\VRF\VRFResultRouter.cs" />
     <Compile Include="Assets\Scripts\Enemies\states\StunState.cs" />
   </ItemGroup>
   <ItemGroup>
