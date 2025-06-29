@@ -17,6 +17,9 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Game/Scenes/Scenes/tutorial.unity
     guid: 622d02912fd096b4c95b97c2a55d8fc3
+  - enabled: 1
+    path: Assets/Game/Scenes/ryuga-testing/tutorial-ryuga.unity
+    guid: a3081933bd0455741953bdb4eb68bb86
   m_configObjects:
     com.unity.input.settings.actions: {fileID: -944628639613478452, guid: 86c716eb22ad030468dcf98d4de5f6fa, type: 3}
   m_UseUCBPForAssetBundles: 0

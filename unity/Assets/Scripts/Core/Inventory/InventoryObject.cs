@@ -26,9 +26,13 @@ public class InventoryObject : ScriptableObject
     public bool AddItem(Item _item, int _amount)
     {
         if (EmptySlotCount <= 0)
+        {
+            Debug.Log("Inventory is full. Cannot add item.");
             return false;
+        }
 
         // Make sure item exists in database
+        Debug.Log($"Attempting to add item with ID: {_item.Id} and amount: {_amount}");
         if (_item.Id < 0  || database.ItemObjects[_item.Id] == null)
         {
             Debug.LogWarning("Item ID is invalid or not found in database.");

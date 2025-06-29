@@ -20,8 +20,10 @@ MonoBehaviour:
     - AllowedItems: 01000000
       item:
         Name: 
-        Id: -1
+        Id: 0
         type: 0
+        rarity: 0
+        description: 
         weaponData:
           name: 
           damage: 0
@@ -55,8 +57,10 @@ MonoBehaviour:
     - AllowedItems: 01000000
       item:
         Name: 
-        Id: -1
+        Id: 0
         type: 0
+        rarity: 0
+        description: 
         weaponData:
           name: 
           damage: 0
@@ -90,8 +94,10 @@ MonoBehaviour:
     - AllowedItems: 01000000
       item:
         Name: 
-        Id: -1
+        Id: 0
         type: 0
+        rarity: 0
+        description: 
         weaponData:
           name: 
           damage: 0
@@ -125,8 +131,10 @@ MonoBehaviour:
     - AllowedItems: 01000000
       item:
         Name: 
-        Id: -1
+        Id: 0
         type: 0
+        rarity: 0
+        description: 
         weaponData:
           name: 
           damage: 0
@@ -160,8 +168,10 @@ MonoBehaviour:
     - AllowedItems: 00000000
       item:
         Name: 
-        Id: -1
+        Id: 0
         type: 0
+        rarity: 0
+        description: 
         weaponData:
           name: 
           damage: 0
@@ -195,8 +205,10 @@ MonoBehaviour:
     - AllowedItems: 00000000
       item:
         Name: 
-        Id: -1
+        Id: 0
         type: 0
+        rarity: 0
+        description: 
         weaponData:
           name: 
           damage: 0
@@ -230,8 +242,10 @@ MonoBehaviour:
     - AllowedItems: 03000000
       item:
         Name: 
-        Id: -1
+        Id: 0
         type: 0
+        rarity: 0
+        description: 
         weaponData:
           name: 
           damage: 0
@@ -265,113 +279,10 @@ MonoBehaviour:
     - AllowedItems: 03000000
       item:
         Name: 
-        Id: -1
+        Id: 0
         type: 0
-        weaponData:
-          name: 
-          damage: 0
-          attackSpeed: 0
-          criticalRate: 0
-          criticalDamage: 0
-        armourData:
-          name: 
-          slot: 0
-          maxHealth: 0
-          defense: 0
-          healthRegeneration: 0
-          resistances: 
-        consumableData:
-          name: 
-          healthAffected: 0
-          manaAffected: 0
-          energyAffected: 0
-          cooldown: 0
-          duration: 0
-        accessoryData:
-          name: 
-          bonusEnergy: 0
-          bonusMana: 0
-          bonusManaRegen: 0
-          bonusEnergyRegen: 0
-        defaultData:
-          name: 
-          notes: 
-      amount: 0
-    - AllowedItems: 02000000
-      item:
-        Name: 
-        Id: -1
-        type: 0
-        weaponData:
-          name: 
-          damage: 0
-          attackSpeed: 0
-          criticalRate: 0
-          criticalDamage: 0
-        armourData:
-          name: 
-          slot: 0
-          maxHealth: 0
-          defense: 0
-          healthRegeneration: 0
-          resistances: 
-        consumableData:
-          name: 
-          healthAffected: 0
-          manaAffected: 0
-          energyAffected: 0
-          cooldown: 0
-          duration: 0
-        accessoryData:
-          name: 
-          bonusEnergy: 0
-          bonusMana: 0
-          bonusManaRegen: 0
-          bonusEnergyRegen: 0
-        defaultData:
-          name: 
-          notes: 
-      amount: 0
-    - AllowedItems: 02000000
-      item:
-        Name: 
-        Id: -1
-        type: 0
-        weaponData:
-          name: 
-          damage: 0
-          attackSpeed: 0
-          criticalRate: 0
-          criticalDamage: 0
-        armourData:
-          name: 
-          slot: 0
-          maxHealth: 0
-          defense: 0
-          healthRegeneration: 0
-          resistances: 
-        consumableData:
-          name: 
-          healthAffected: 0
-          manaAffected: 0
-          energyAffected: 0
-          cooldown: 0
-          duration: 0
-        accessoryData:
-          name: 
-          bonusEnergy: 0
-          bonusMana: 0
-          bonusManaRegen: 0
-          bonusEnergyRegen: 0
-        defaultData:
-          name: 
-          notes: 
-      amount: 0
-    - AllowedItems: 02000000
-      item:
-        Name: 
-        Id: -1
-        type: 0
+        rarity: 0
+        description: 
         weaponData:
           name: 
           damage: 0

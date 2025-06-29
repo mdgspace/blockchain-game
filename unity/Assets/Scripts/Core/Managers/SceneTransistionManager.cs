@@ -35,7 +35,7 @@ public class SceneTransitionManager : MonoBehaviour
     public void OnLoginSuccess()
     {
         Debug.Log("Login successful, transitioning to character scene");
-        LoadCharacterScene();
+        LoadGameScene();
     }
 
     public void LoadCharacterScene()
