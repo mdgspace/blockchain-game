@@ -39,9 +39,9 @@ MonoBehaviour:
       resistances: 
     consumableData:
       name: 
-      healthAffected: 15
-      manaAffected: 0
-      energyAffected: 0
+      healthAffected: 50
+      manaAffected: 50
+      energyAffected: 50
       cooldown: 0
       duration: 0
     accessoryData:
@@ -70,9 +70,9 @@ MonoBehaviour:
     resistances: 
   consumableData:
     name: 
-    healthAffected: 0
-    manaAffected: 0
-    energyAffected: 0
+    healthAffected: 50
+    manaAffected: 50
+    energyAffected: 50
     cooldown: 0
     duration: 0
   accessoryData:

@@ -189,6 +189,33 @@ public partial class @PlayerInputActions: IInputActionCollection2, IDisposable
                     ""processors"": """",
                     ""interactions"": """",
                     ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""potion1"",
+                    ""type"": ""Button"",
+                    ""id"": ""938241f9-db6b-486c-a20c-2d0d75e967d9"",
+                    ""expectedControlType"": """",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""potion2"",
+                    ""type"": ""Button"",
+                    ""id"": ""30f446a6-c6ac-4a61-9c46-46858f2ab1fd"",
+                    ""expectedControlType"": """",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""potion3"",
+                    ""type"": ""Button"",
+                    ""id"": ""fff4ea9e-a0aa-4478-9f71-3ca3b0d91353"",
+                    ""expectedControlType"": """",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
                 }
             ],
             ""bindings"": [
@@ -367,6 +394,39 @@ public partial class @PlayerInputActions: IInputActionCollection2, IDisposable
                     ""action"": ""Stats"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""dd5d86e6-9a21-4769-86a5-fb10036b1367"",
+                    ""path"": ""<Keyboard>/z"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""potion1"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""a262d9e4-f7f9-40c1-9a6f-da6d2439475c"",
+                    ""path"": ""<Keyboard>/x"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""potion2"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""7ed4301a-5153-4b57-8d2b-c547e3b599c5"",
+                    ""path"": ""<Keyboard>/c"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""potion3"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
                 }
             ]
         }
@@ -386,6 +446,9 @@ public partial class @PlayerInputActions: IInputActionCollection2, IDisposable
         m_Player_Spell3 = m_Player.FindAction("Spell3", throwIfNotFound: true);
         m_Player_Spell4 = m_Player.FindAction("Spell4", throwIfNotFound: true);
         m_Player_Stats = m_Player.FindAction("Stats", throwIfNotFound: true);
+        m_Player_potion1 = m_Player.FindAction("potion1", throwIfNotFound: true);
+        m_Player_potion2 = m_Player.FindAction("potion2", throwIfNotFound: true);
+        m_Player_potion3 = m_Player.FindAction("potion3", throwIfNotFound: true);
     }
 
     ~@PlayerInputActions()
@@ -477,6 +540,9 @@ public partial class @PlayerInputActions: IInputActionCollection2, IDisposable
     private readonly InputAction m_Player_Spell3;
     private readonly InputAction m_Player_Spell4;
     private readonly InputAction m_Player_Stats;
+    private readonly InputAction m_Player_potion1;
+    private readonly InputAction m_Player_potion2;
+    private readonly InputAction m_Player_potion3;
     /// <summary>
     /// Provides access to input actions defined in input action map "Player".
     /// </summary>
@@ -532,6 +598,18 @@ public partial class @PlayerInputActions: IInputActionCollection2, IDisposable
         /// Provides access to the underlying input action "Player/Stats".
         /// </summary>
         public InputAction @Stats => m_Wrapper.m_Player_Stats;
+        /// <summary>
+        /// Provides access to the underlying input action "Player/potion1".
+        /// </summary>
+        public InputAction @potion1 => m_Wrapper.m_Player_potion1;
+        /// <summary>
+        /// Provides access to the underlying input action "Player/potion2".
+        /// </summary>
+        public InputAction @potion2 => m_Wrapper.m_Player_potion2;
+        /// <summary>
+        /// Provides access to the underlying input action "Player/potion3".
+        /// </summary>
+        public InputAction @potion3 => m_Wrapper.m_Player_potion3;
         /// <summary>
         /// Provides access to the underlying input action map instance.
         /// </summary>
@@ -591,6 +669,15 @@ public partial class @PlayerInputActions: IInputActionCollection2, IDisposable
             @Stats.started += instance.OnStats;
             @Stats.performed += instance.OnStats;
             @Stats.canceled += instance.OnStats;
+            @potion1.started += instance.OnPotion1;
+            @potion1.performed += instance.OnPotion1;
+            @potion1.canceled += instance.OnPotion1;
+            @potion2.started += instance.OnPotion2;
+            @potion2.performed += instance.OnPotion2;
+            @potion2.canceled += instance.OnPotion2;
+            @potion3.started += instance.OnPotion3;
+            @potion3.performed += instance.OnPotion3;
+            @potion3.canceled += instance.OnPotion3;
         }
 
         /// <summary>
@@ -635,6 +722,15 @@ public partial class @PlayerInputActions: IInputActionCollection2, IDisposable
             @Stats.started -= instance.OnStats;
             @Stats.performed -= instance.OnStats;
             @Stats.canceled -= instance.OnStats;
+            @potion1.started -= instance.OnPotion1;
+            @potion1.performed -= instance.OnPotion1;
+            @potion1.canceled -= instance.OnPotion1;
+            @potion2.started -= instance.OnPotion2;
+            @potion2.performed -= instance.OnPotion2;
+            @potion2.canceled -= instance.OnPotion2;
+            @potion3.started -= instance.OnPotion3;
+            @potion3.performed -= instance.OnPotion3;
+            @potion3.canceled -= instance.OnPotion3;
         }
 
         /// <summary>
@@ -752,5 +848,26 @@ public partial class @PlayerInputActions: IInputActionCollection2, IDisposable
         /// <seealso cref="UnityEngine.InputSystem.InputAction.performed" />
         /// <seealso cref="UnityEngine.InputSystem.InputAction.canceled" />
         void OnStats(InputAction.CallbackContext context);
+        /// <summary>
+        /// Method invoked when associated input action "potion1" is either <see cref="UnityEngine.InputSystem.InputAction.started" />, <see cref="UnityEngine.InputSystem.InputAction.performed" /> or <see cref="UnityEngine.InputSystem.InputAction.canceled" />.
+        /// </summary>
+        /// <seealso cref="UnityEngine.InputSystem.InputAction.started" />
+        /// <seealso cref="UnityEngine.InputSystem.InputAction.performed" />
+        /// <seealso cref="UnityEngine.InputSystem.InputAction.canceled" />
+        void OnPotion1(InputAction.CallbackContext context);
+        /// <summary>
+        /// Method invoked when associated input action "potion2" is either <see cref="UnityEngine.InputSystem.InputAction.started" />, <see cref="UnityEngine.InputSystem.InputAction.performed" /> or <see cref="UnityEngine.InputSystem.InputAction.canceled" />.
+        /// </summary>
+        /// <seealso cref="UnityEngine.InputSystem.InputAction.started" />
+        /// <seealso cref="UnityEngine.InputSystem.InputAction.performed" />
+        /// <seealso cref="UnityEngine.InputSystem.InputAction.canceled" />
+        void OnPotion2(InputAction.CallbackContext context);
+        /// <summary>
+        /// Method invoked when associated input action "potion3" is either <see cref="UnityEngine.InputSystem.InputAction.started" />, <see cref="UnityEngine.InputSystem.InputAction.performed" /> or <see cref="UnityEngine.InputSystem.InputAction.canceled" />.
+        /// </summary>
+        /// <seealso cref="UnityEngine.InputSystem.InputAction.started" />
+        /// <seealso cref="UnityEngine.InputSystem.InputAction.performed" />
+        /// <seealso cref="UnityEngine.InputSystem.InputAction.canceled" />
+        void OnPotion3(InputAction.CallbackContext context);
     }
 }

@@ -11653,7 +11653,7 @@ Camera:
   far clip plane: 1000
   field of view: 34
   orthographic: 1
-  orthographic size: 1.05
+  orthographic size: 2.725
   m_Depth: -1
   m_CullingMask:
     serializedVersion: 2
@@ -14607,6 +14607,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cc4b757d26c86a845963061cc917f6eb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  slot1: {fileID: 1857312790}
+  slot2: {fileID: 948449327}
+  slot3: {fileID: 147173750}
+  potionInventory: {fileID: 11400000, guid: f82998e34f592484b87aec4f10bc3846, type: 2}
+  player: {fileID: 1549783575}
 --- !u!1 &1556589725
 GameObject:
   m_ObjectHideFlags: 0
