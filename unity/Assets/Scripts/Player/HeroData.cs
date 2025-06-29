@@ -61,6 +61,7 @@ public class StatPointsAssigned
     public int intelligence = 1;
     public int stamina = 1;
     public int agility = 1;
+    public int experience = 0; // Total experience points
     public int remainingPoints = 0;
     public void Reset()
     {

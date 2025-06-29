@@ -1,10 +1,19 @@
 fileFormatVersion: 2
-guid: bc3b754e2f40bc04f94f968acc6996ff
+guid: 6f04c0ad582194140991f589f9505424
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: 9164097274103974401
-    second: RectangleBox_96x96_0
+      213: 2370028877578710224
+    second: screen2final (3)_0
+  - first:
+      213: 6411775832894529154
+    second: screen2final (3)_1
+  - first:
+      213: -2117858514631695609
+    second: screen2final (3)_2
+  - first:
+      213: -1021952444525039924
+    second: screen2final (3)_3
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -46,13 +55,13 @@ TextureImporter:
   nPOTScale: 0
   lightmap: 0
   compressionQuality: 50
-  spriteMode: 1
+  spriteMode: 2
   spriteExtrude: 1
-  spriteMeshType: 0
+  spriteMeshType: 1
   alignment: 0
   spritePivot: {x: 0.5, y: 0.5}
-  spritePixelsToUnits: 64
-  spriteBorder: {x: 26, y: 27, z: 27, w: 26}
+  spritePixelsToUnits: 100
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
   spriteGenerateFallbackPhysicsShape: 1
   alphaUsage: 1
   alphaIsTransparency: 1
@@ -75,7 +84,7 @@ TextureImporter:
     maxTextureSize: 2048
     resizeAlgorithm: 0
     textureFormat: -1
-    textureCompression: 0
+    textureCompression: 1
     compressionQuality: 50
     crunchedCompression: 0
     allowsAlphaSplitting: 0
@@ -113,23 +122,89 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: RectangleBox_96x96_0
+      name: screen2final (3)_0
       rect:
         serializedVersion: 2
         x: 0
-        y: 0
-        width: 96
-        height: 96
+        y: 1
+        width: 321
+        height: 93
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 26, y: 27, z: 27, w: 26}
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 10ac716dae96d2f70800000000000000
-      internalID: 9164097274103974401
+      spriteID: 0dc2f7b05b804e020800000000000000
+      internalID: 2370028877578710224
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: screen2final (3)_1
+      rect:
+        serializedVersion: 2
+        x: 83
+        y: 1
+        width: 78
+        height: 91
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 28edc1326243bf850800000000000000
+      internalID: 6411775832894529154
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: screen2final (3)_2
+      rect:
+        serializedVersion: 2
+        x: 163
+        y: 1
+        width: 79
+        height: 91
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 70367ded6eadb92e0800000000000000
+      internalID: -2117858514631695609
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: screen2final (3)_3
+      rect:
+        serializedVersion: 2
+        x: 244
+        y: 1
+        width: 77
+        height: 91
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: cce2ebe8aab41d1f0800000000000000
+      internalID: -1021952444525039924
       vertices: []
       indices: 
       edges: []
@@ -138,8 +213,8 @@ TextureImporter:
     customData: 
     physicsShape: []
     bones: []
-    spriteID: 34c6786ea34c3214f98175ae3715357e
-    internalID: 646168221
+    spriteID: 
+    internalID: 0
     vertices: []
     indices: 
     edges: []
@@ -148,7 +223,10 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      RectangleBox_96x96_0: 9164097274103974401
+      screen2final (3)_0: 2370028877578710224
+      screen2final (3)_1: 6411775832894529154
+      screen2final (3)_2: -2117858514631695609
+      screen2final (3)_3: -1021952444525039924
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
