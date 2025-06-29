@@ -8491,6 +8491,8 @@ MonoBehaviour:
   intelligenceText: {fileID: 9195977759598327185}
   staminaText: {fileID: 5140012997010903140}
   agilityText: {fileID: 2817900802621243681}
+  levelText: {fileID: 0}
+  heroData: {fileID: 0}
 --- !u!1 &7359251353208578476
 GameObject:
   m_ObjectHideFlags: 0

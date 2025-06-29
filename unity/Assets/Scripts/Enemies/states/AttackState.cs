@@ -13,7 +13,7 @@ public class AttackState : BaseEnemyState
     public override void Enter()
     {
         StopMoving();
-        attackTimer = 100f;   
+        attackTimer = 100f;
         attackCooldown = owner.AttackCooldown;
         isAnimationTriggered = false;
         //owner.animator.SetBool("isAttacking", true);
@@ -36,9 +36,13 @@ public class AttackState : BaseEnemyState
         }
 
         float distanceToPlayer = Vector2.Distance(owner.transform.position, Player.position);
-        if (distanceToPlayer > owner.AttackRange)
+        if (distanceToPlayer > owner.AttackRange && attackTimer > attackCooldown)
         {
             stateMachine.ChangeState(owner.FollowState);
+            return;
+        }else if(distanceToPlayer > owner.AttackRange && attackTimer < attackCooldown)
+        {
+            stateMachine.ChangeState(owner.StunState);
             return;
         }
     }

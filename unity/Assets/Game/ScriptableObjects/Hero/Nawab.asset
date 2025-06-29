@@ -36,8 +36,9 @@ MonoBehaviour:
   statPointsAssigned:
     constitution: 1
     strength: 1
-    dexterity: 2
-    intelligence: 2
-    stamina: 4
+    dexterity: 1
+    intelligence: 1
+    stamina: 1
     agility: 1
     remainingPoints: 0
+    experience: 0

@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using JetBrains.Annotations;
+using System.Collections;
 using System.Collections.Generic;
 using Unity.VisualScripting;
 using UnityEngine;
@@ -40,13 +41,15 @@ public class ItemObject : ScriptableObject
     public ItemType type;
     [TextArea(3, 10)]
     public string description;
+    public Item data = new Item();
+    public float itemCost;
+    public int maxItemStock;
 
     [Header("Type-specific Data")]
     public WeaponData weaponData;
     public ArmourData armourData;
     public ConsumableData consumableData;
     public AccessoryData accessoryData;
-     public Item data = new Item();
 
     private static int nextId = 0;
     public int id = -1;

@@ -12,6 +12,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: slime
       objectReference: {fileID: 0}
+    - target: {fileID: -2253911629886400664, guid: fa41dfa8e14f7184f816c58e0e0ca511, type: 3}
+      propertyPath: m_Layer
+      value: 11
+      objectReference: {fileID: 0}
     - target: {fileID: 1160356261127867848, guid: fa41dfa8e14f7184f816c58e0e0ca511, type: 3}
       propertyPath: m_Controller
       value: 
@@ -165,7 +169,7 @@ CircleCollider2D:
   m_CompositeOperation: 0
   m_CompositeOrder: 0
   m_Offset: {x: -0.005000006, y: 0.14485653}
-  m_Radius: 0.07528333
+  m_Radius: 0.11760392
 --- !u!114 &2048595835394980048
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -180,10 +184,18 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   playerTransform: {fileID: 0}
   moveSpeed: 2
+  maxHealth: 100
+  currentHealth: 0
+  damage: 15
+  attackSpeed: 1
+  AttackRange: 0.5
+  AttackCooldown: 1
+  knockbackForce: 4
+  attackanimationtime: 1
+  maxExpAward: 0
+  minExpAward: 0
   Name: Enemy
   agent: {fileID: 0}
-  AttackRange: 1.5
-  AttackCooldown: 1
   visionRange: 5
   visionRadius: 0.5
   playerLayer:
@@ -191,7 +203,7 @@ MonoBehaviour:
     m_Bits: 524288
   obstacleLayer:
     serializedVersion: 2
-    m_Bits: 2048
+    m_Bits: 1048576
   roamRadius: 5
   groundLayer:
     serializedVersion: 2
