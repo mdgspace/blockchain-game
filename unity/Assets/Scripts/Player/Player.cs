@@ -51,12 +51,14 @@ public class Player : MonoBehaviour
 
     [SerializeField] private BoxCollider2D attackHitbox; // Reference to the attack hitbox GameObject
     [SerializeField] private LayerMask enemyLayer;
+    private GameObject playerObject;
     public Vector2 CurrentVelocity => RB.linearVelocity;
     public bool IsFacingRight = true;
     private float RegenTimer = 0f;
     public bool isInvincible = false; // For future use, e.g., after taking damage
     private bool flash = true; // Flash on hit effect
     private Transform _cameraTransform;
+    private Transform spawnPoint;
 
     private void Awake()
     {
@@ -79,6 +81,8 @@ public class Player : MonoBehaviour
         attackState = new PlayerAttackState(this, AttackStateMachine);
         noAttackState = new PlayerNoAttackState(this, AttackStateMachine);
         spellState = new PlayerSpellState(this, stateMachine);
+
+        spawnPoint = GetComponent<Transform>();
     }
     private void Start()
     {
@@ -250,13 +254,27 @@ public class Player : MonoBehaviour
                 stateMachine.ChangeState(idleState);
         }
     }
-
     private void Die()
     {
         // Add animation, disable movement, etc.
         Debug.Log($"{heroData.playerName} has died.");
+        playerObject = gameObject;
+        playerObject.SetActive(false);
+
+        respawn();
     }
 
+    public void respawn()
+    {
+        currentHealth = heroData.defensiveStats.maxHealth;
+        currentEnergy = heroData.specialStats.maxEnergy;
+        currentMana = heroData.specialStats.maxMana;
+        playerObject.transform.position = spawnPoint.position;
+        stateMachine.Initialize(idleState);
+
+
+        playerObject.SetActive(true);
+    }
     internal void Move(float inputX)
     {
         throw new NotImplementedException();

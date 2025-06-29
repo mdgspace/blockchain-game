@@ -12,6 +12,7 @@ public class GameManager : MonoBehaviour
     [SerializeField] private GameObject pauseUI;
     private GameObject inventoryUI;
     [SerializeField] private Canvas statsCanvas;
+    [SerializeField] private Canvas controlsCanvas;
     #endregion
 
     void Awake()
@@ -108,5 +109,23 @@ public class GameManager : MonoBehaviour
         }
         statsCanvas.enabled = false;
         Debug.Log("Hiding stats canvas");
+    }
+
+    public void ShowControlsCanvas()
+    {
+        if (controlsCanvas == null)
+        {
+            return;
+        }
+        controlsCanvas.enabled = true;
+    }
+
+    public void HideControlsCanvas()
+    {
+        if (controlsCanvas == null)
+        {
+            return;
+        }
+        controlsCanvas.enabled = false;
     }
 }

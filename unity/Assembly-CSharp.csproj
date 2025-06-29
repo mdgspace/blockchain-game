@@ -87,6 +87,7 @@
     <Compile Include="Assets\DialogueEditor\Assets\Scripts\Connection.cs" />
     <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\TMP_TextSelector_A.cs" />
     <Compile Include="Assets\Scripts\Enemies\states\FreeRoamingState.cs" />
+    <Compile Include="Assets\Scripts\Core\Managers\GameStates\ControlScreenState.cs" />
     <Compile Include="Assets\Scripts\Enemies\states\FollowState.cs" />
     <Compile Include="Assets\Scripts\Spells\EnemySpells\MagicProjectile.cs" />
     <Compile Include="Assets\Scripts\Enemies\slime\slimeEnemy.cs" />
