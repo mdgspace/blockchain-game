@@ -17,9 +17,9 @@ MonoBehaviour:
   type: 2
   description: 
   data:
-    Name: 
+    Name: Health Potion
     Id: 2
-    type: 0
+    type: 2
     weaponData:
       name: 
       damage: 0
@@ -49,6 +49,8 @@ MonoBehaviour:
     defaultData:
       name: 
       notes: 
+  itemCost: 15
+  maxItemStock: 5
   weaponData:
     name: 
     damage: 0

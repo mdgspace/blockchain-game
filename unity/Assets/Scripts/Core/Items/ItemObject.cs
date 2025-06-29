@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using JetBrains.Annotations;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -28,6 +29,8 @@ public class ItemObject : ScriptableObject
     [TextArea(5, 10)]
     public string description;
     public Item data = new Item();
+    public float itemCost;
+    public int maxItemStock;
 
     // Only one of these will be used based on `type`
     public WeaponData weaponData;

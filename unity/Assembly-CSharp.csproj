@@ -175,6 +175,8 @@
     <Compile Include="Assets\Scripts\Player\PlayerStates\PlayerNoAttackState.cs" />
     <Compile Include="Assets\DialogueEditor\Assets\Scripts\Condition.cs" />
     <Compile Include="Assets\DialogueEditor\Assets\Scripts\EditableParameter.cs" />
+    <Compile Include="Assets\Scripts\Core\UI handlers\ShopItemUI.cs" />
+    <Compile Include="Assets\Scripts\Core\Shop.cs" />
     <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\DropdownSample.cs" />
     <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\VertexColorCycler.cs" />
     <Compile Include="Assets\Scripts\Core\Destroy.cs" />
@@ -190,6 +192,7 @@
     <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\TeleType.cs" />
     <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\TMP_TextEventCheck.cs" />
     <Compile Include="Assets\Scripts\Core\Items\ItemDataTypes.cs" />
+    <Compile Include="Assets\Scripts\Core\ShopRefresher.cs" />
     <Compile Include="Assets\Scripts\Spells\SpellData\AttackData.cs" />
     <Compile Include="Assets\PlayerInputAction.cs" />
     <Compile Include="Assets\Scripts\Player\HeroData.cs" />
