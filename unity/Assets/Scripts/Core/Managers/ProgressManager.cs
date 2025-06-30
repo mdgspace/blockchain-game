@@ -84,6 +84,7 @@ public class ProgressManager : MonoBehaviour
             statPointsAvailable += 3;
             statPointsTotal += 3;
             Debug.Log($"Level Up! New Level: {heroData.level}");
+            AudioManager.Instance.PlayLevelUp();
         }
     }
 
