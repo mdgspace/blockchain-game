@@ -169,7 +169,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -180, y: 0}
+  m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &3044689635363756165
@@ -195,7 +195,7 @@ MonoBehaviour:
   m_CellSize: {x: 100, y: 100}
   m_Spacing: {x: 100, y: 10}
   m_Constraint: 1
-  m_ConstraintCount: 3
+  m_ConstraintCount: 1
 --- !u!1 &8180782997800447210
 GameObject:
   m_ObjectHideFlags: 0
@@ -448,8 +448,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   canvas: {fileID: 1778784957680453823}
   dialogueCanvas: {fileID: 0}
-  shopItems:
-  - {fileID: 11400000, guid: 8735f18c25f683946a9eb1731063a68a, type: 2}
+  spawnPoint: {fileID: 0}
+  shopItems: {fileID: 0}
   maxStock: 10
   itemContainer: {fileID: 548938336036867573}
   shopItemPrefab: {fileID: 4323691407903832724, guid: 6a038e118a1564445b7b2f769e5e9ea8, type: 3}
@@ -465,6 +465,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 30c921a173a80884a9fca154407897d9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  contractAddress: 0xYourContractAddress
-  rpcUrl: https://api.avax-test.network/ext/bc/C/rpc
   shopManager: {fileID: 6695485561097678177}

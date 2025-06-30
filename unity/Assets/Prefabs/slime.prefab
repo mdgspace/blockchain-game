@@ -183,7 +183,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   playerTransform: {fileID: 0}
-  moveSpeed: 2
+  moveSpeed: 1.25
   maxHealth: 100
   currentHealth: 0
   damage: 15
@@ -192,8 +192,8 @@ MonoBehaviour:
   AttackCooldown: 1
   knockbackForce: 4
   attackanimationtime: 1
-  maxExpAward: 0
-  minExpAward: 0
+  maxExpAward: 85
+  minExpAward: 35
   Name: Enemy
   agent: {fileID: 0}
   visionRange: 5

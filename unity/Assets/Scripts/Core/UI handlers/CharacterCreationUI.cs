@@ -18,7 +18,7 @@ public class CharacterCreationUI : MonoBehaviour
 
     [Header("Create Character Form")]
     public TMP_InputField playerNameInput;
-    public TMP_Dropdown raceDropdown;
+    //public TMP_Dropdown raceDropdown;
     public Button createButton;
 
     [Header("Character List")]
@@ -31,6 +31,9 @@ public class CharacterCreationUI : MonoBehaviour
     private bool isCreatingCharacter = false;
 
     private List<HeroBasicData> heroBasics = new List<HeroBasicData>();
+    private string wallet;
+
+    [SerializeField] TMP_InputField walletdisplay;
 
     [Serializable]
     public class HeroBasicData
@@ -96,19 +99,26 @@ public class CharacterCreationUI : MonoBehaviour
 
     private void Start()
     {
+        wallet = Web3AuthManager.Instance.GetWalletAddress().ToString();
         StartCoroutine(InitializeAfterDelay());
     }
 
     private IEnumerator InitializeAfterDelay()
     {
+        yield return new WaitForSeconds(1f);
         InitializeUI();
         yield return new WaitForSeconds(1f);
         LoadExistingCharacters();
     }
 
+    private void FixedUpdate()
+    {
+        walletdisplay.text = wallet;
+    }
 
     private void InitializeUI()
     {
+
         // Initialize contract service
         HeroContractService.Instance.InitializeContract();
 
@@ -118,12 +128,12 @@ public class CharacterCreationUI : MonoBehaviour
         // Setup create button
         createButton.onClick.AddListener(OnCreateCharacterClicked);
 
-        // Setup race dropdown (add your races here)
-        raceDropdown.options.Clear();
-        raceDropdown.options.Add(new TMP_Dropdown.OptionData("Human"));
-        raceDropdown.options.Add(new TMP_Dropdown.OptionData("Elf"));
-        raceDropdown.options.Add(new TMP_Dropdown.OptionData("Orc"));
-        raceDropdown.RefreshShownValue();
+        //// Setup race dropdown (add your races here)
+        //raceDropdown.options.Clear();
+        //raceDropdown.options.Add(new TMP_Dropdown.OptionData("Human"));
+        //raceDropdown.options.Add(new TMP_Dropdown.OptionData("Elf"));
+        //raceDropdown.options.Add(new TMP_Dropdown.OptionData("Orc"));
+        //raceDropdown.RefreshShownValue();
 
         Debug.Log("CharacterCreationUI initialized. Waiting for contract setup.");
     }
@@ -137,17 +147,17 @@ public class CharacterCreationUI : MonoBehaviour
 
         // For now, we'll just show the create character option
         // Later you can implement character loading here
-        string wallet = Web3AuthManager.Instance.GetWalletAddress().ToString();
+
         Debug.Log($"Wallet being used in GetActiveHeroesByOwner: {wallet}");
 
         playerIDs = await HeroContractService.Instance.GetActiveHeroesByOwner(wallet);
 
         Debug.Log($"Found {playerIDs.Count} existing characters for wallet: {wallet}");
-        if(playerIDs.Count > 0)
+        if(playerIDs.Count > 15)
         {
             statusText.text = "Existing characters loaded. You can create a new character.";
             // Optionally, you can populate the character list here
-            PopulateCharacterList(playerIDs);
+            //PopulateCharacterList(playerIDs);
             //Debug.Log($"Found {playerIDs.Count} existing characters for wallet: {wallet}");
         }
         else
@@ -183,7 +193,7 @@ public class CharacterCreationUI : MonoBehaviour
             return;
         }
 
-        string selectedRace = raceDropdown.options[raceDropdown.value].text;
+        string selectedRace = "elf";
         StartCoroutine(CreateCharacter(playerName, selectedRace));
     }
 

@@ -294,7 +294,7 @@ public class Enemy : MonoBehaviour
 
     private IEnumerator enumerator()
     {
-        yield return new WaitForSeconds(3f);
+        yield return new WaitForSeconds(1f);
 
         fetchExpFromContract();
     }

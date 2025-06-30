@@ -168,6 +168,7 @@
     <Compile Include="Assets\Scripts\Spells\SpellData\BuffData.cs" />
     <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\CameraController.cs" />
     <Compile Include="Assets\Scripts\Core\Managers\InputManager.cs" />
+    <Compile Include="Assets\Scripts\Core\DesertSceneTransition.cs" />
     <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\Benchmark03.cs" />
     <Compile Include="Assets\Scripts\Player\SpellCaster.cs" />
     <Compile Include="Assets\Scripts\Core\Items\ItemDatabaseObject.cs" />
