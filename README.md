@@ -284,6 +284,14 @@ sequenceDiagram
 
 ## Blockchain Integration
 
+### Implementation
+
+| Feature | Screenshot |
+|:--------|:-----------|
+| **VRF Subscription** | <img src="https://github.com/user-attachments/assets/c04fd97c-046b-496a-badd-a58822ea9e84" width="800"/> |
+| **Automation Upkeep** | <img src="https://github.com/user-attachments/assets/064d0a1a-c27f-4b2e-9134-0598436e743f" width="800"/> |
+
+
 ###  Smart Contract Details
 
 #### SimpleRandom Contract
