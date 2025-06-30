@@ -5,9 +5,27 @@ EditorBuildSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 2
   m_Scenes:
-  - enabled: 1
-    path: Assets/Scenes/SampleScene.unity
+  - enabled: 0
+    path: Assets/Game/Scenes/SampleScene.unity
     guid: 8c9cfa26abfee488c85f1582747f6a02
+  - enabled: 1
+    path: Assets/Game/Scenes/Scenes/LoginScene.unity
+    guid: b48ae437ce58c2841957fb11d9a6997e
+  - enabled: 1
+    path: Assets/Game/Scenes/Scenes/CharacterScene.unity
+    guid: c24a3b0005e0bc343940587e3d255c98
+  - enabled: 1
+    path: Assets/Game/Scenes/Scenes/tutorial.unity
+    guid: 622d02912fd096b4c95b97c2a55d8fc3
+  - enabled: 1
+    path: Assets/Game/Scenes/Scenes/tutorial Vinayak.unity
+    guid: 54ddd7340f81c17438beab452881393e
+  - enabled: 1
+    path: Assets/Game/Scenes/ryuga-testing/tutorial-ryuga.unity
+    guid: a3081933bd0455741953bdb4eb68bb86
+  - enabled: 1
+    path: Assets/Game/Scenes/ryuga-testing/CharacterSceneVinayak.unity
+    guid: ea31d12384d0eb248b2fa111024e51ab
   m_configObjects:
-    com.unity.input.settings.actions: {fileID: -944628639613478452, guid: 2bcd2660ca9b64942af0de543d8d7100, type: 3}
+    com.unity.input.settings.actions: {fileID: -944628639613478452, guid: 86c716eb22ad030468dcf98d4de5f6fa, type: 3}
   m_UseUCBPForAssetBundles: 0
